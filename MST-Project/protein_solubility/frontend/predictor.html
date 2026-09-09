@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictor &middot; Solubility Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="tabs">
+    <a class="tab active" href="/predictor">Predictor</a>
+    <a class="tab" href="/lookup">Gene Lookup</a>
+    <a class="tab" href="/batch">Batch Predict</a>
+    <a class="tab" href="/dataset">Dataset &amp; Model</a>
+  </nav>
+</header>
+
+<main style="padding-top:32px">
+  <div class="grid-two">
+    <div class="card">
+      <h2>Sequence input</h2>
+      <label class="field-label" for="example-select">Load an example</label>
+      <select id="example-select">
+        <option value="">(paste your own)</option>
+        <option value="thrB">thrB (b0003) &mdash; measured Insoluble, 32%</option>
+        <option value="yaaX">yaaX (b0005) &mdash; measured Soluble, 78%</option>
+      </select>
+      <label class="field-label" for="sequence-input">Amino acid sequence</label>
+      <textarea id="sequence-input" placeholder="Paste a raw amino-acid sequence (no FASTA header needed)&hellip;"></textarea>
+      <button class="btn-primary" id="predict-btn">Predict solubility</button>
+      <p class="hint" id="predict-error" style="min-height:16px;margin-top:10px"></p>
+    </div>
+
+    <div class="card" id="result-card">
+      <h2>Result</h2>
+      <div id="result-empty" class="empty-state">Run a prediction to see results here.</div>
+      <div id="result-body" class="hidden">
+        <div class="verdict" id="verdict-box">
+          <div class="verdict-label" id="verdict-label">&mdash;</div>
+          <div class="prob-track"><div class="prob-fill" id="prob-fill"></div></div>
+          <div class="prob-caption" id="prob-caption">P(soluble) = &mdash;</div>
+        </div>
+
+        <h3 class="sub-heading">Top features driving this prediction</h3>
+        <div id="driver-bars" class="driver-bars"></div>
+
+        <div id="tag-card" class="tag-card hidden">
+          <div class="tag-title">Suggested fusion tag: <span id="tag-name"></span></div>
+          <div class="tag-driver" id="tag-driver"></div>
+          <div class="tag-reason" id="tag-reason"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="mutation-card" style="margin-top:16px">
+    <h2>Mutation simulator</h2>
+    <p class="hint">Swap one residue in the last-predicted sequence and see how the probability shifts.</p>
+    <div class="mutation-row">
+      <label>Position <input type="number" id="mut-position" min="1" value="1"></label>
+      <label>Current <input type="text" id="mut-current" disabled></label>
+      <label>Mutate to
+        <select id="mut-residue"></select>
+      </label>
+      <button class="btn-secondary" id="mutate-btn">Simulate</button>
+    </div>
+    <div id="mutation-result" class="mutation-result"></div>
+  </div>
+</main>
+
+<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

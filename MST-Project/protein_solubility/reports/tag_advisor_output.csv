@@ -1,0 +1,364 @@
+row_index,actual_label,predicted,dominant_driver,driver_value,tag,reason
+1,0,Insoluble,instability_index,52.137,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+3,0,Insoluble,gravy,0.131,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+4,1,Insoluble,gravy,0.075,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+5,0,Insoluble,molecular_weight,40989.968,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+7,1,Insoluble,instability_index,49.464,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+8,0,Insoluble,molecular_weight,83459.062,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+9,0,Insoluble,fraction_negative,0.091,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+10,0,Insoluble,aromaticity,0.11,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+12,0,Insoluble,aromaticity,0.13,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+13,0,Insoluble,instability_index,43.124,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+16,0,Insoluble,molecular_weight,49897.832,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+18,1,Insoluble,instability_index,44.464,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+19,0,Insoluble,instability_index,48.115,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+20,0,Insoluble,isoelectric_point,6.832,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+23,0,Insoluble,instability_index,40.383,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+25,0,Insoluble,aromaticity,0.157,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+26,0,Insoluble,isoelectric_point,9.083,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+28,0,Insoluble,gravy,0.766,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+29,0,Insoluble,aromaticity,0.127,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+30,1,Insoluble,aa_pct_K,5.839,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+31,0,Insoluble,gravy,0.742,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+32,1,Insoluble,aromaticity,0.148,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+34,0,Insoluble,isoelectric_point,7.647,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+35,0,Insoluble,molecular_weight,37121.191,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+36,1,Insoluble,instability_index,43.842,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+37,0,Insoluble,gravy,0.615,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+39,0,Insoluble,aa_pct_K,2.98,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+40,0,Insoluble,molecular_weight,55172.08,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+42,1,Insoluble,aa_pct_Y,1.37,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+43,0,Insoluble,instability_index,42.827,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+44,0,Insoluble,aa_pct_Y,1.042,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+45,0,Insoluble,molecular_weight,140487.74,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+46,0,Insoluble,instability_index,47.838,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+47,0,Insoluble,gravy,0.422,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+48,1,Insoluble,molecular_weight,64611.555,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+49,0,Insoluble,molecular_weight,56744.258,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+50,1,Insoluble,instability_index,47.706,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+51,0,Insoluble,instability_index,40.055,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+52,0,Insoluble,instability_index,44.123,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+53,0,Insoluble,instability_index,42.29,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+55,1,Insoluble,molecular_weight,47056.274,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+60,0,Insoluble,gravy,0.062,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+61,0,Insoluble,gravy,0.007,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+63,0,Insoluble,molecular_weight,77023.295,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+64,0,Insoluble,instability_index,42.253,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+66,1,Insoluble,aa_pct_H,6.545,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+67,0,Insoluble,gravy,0.13,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+68,0,Insoluble,molecular_weight,73575.765,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+71,0,Insoluble,instability_index,44.292,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+74,0,Insoluble,fraction_negative,0.106,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+75,0,Insoluble,instability_index,54.263,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+76,0,Insoluble,gravy,0.029,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+77,0,Insoluble,instability_index,47.208,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+79,0,Insoluble,aa_pct_K,9.05,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+80,1,Insoluble,instability_index,45.908,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+81,0,Insoluble,gravy,0.329,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+82,1,Insoluble,gravy,0.002,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+83,1,Insoluble,molecular_weight,45827.645,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+84,0,Insoluble,gravy,1.035,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+86,1,Insoluble,aa_pct_Y,1.313,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+88,1,Insoluble,instability_index,51.411,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+91,1,Insoluble,gravy,0.027,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+94,0,Insoluble,fraction_charged,0.319,Thioredoxin (Trx),"Very high charged-residue fraction suggests charge-driven misfolding; Trx's small, reducing-environment profile helps here."
+95,0,Insoluble,instability_index,42.791,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+97,0,Insoluble,instability_index,50.494,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+99,0,Insoluble,gravy,0.124,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+100,0,Insoluble,gravy,0.824,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+101,0,Insoluble,molecular_weight,13183.874,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+102,1,Insoluble,gravy,0.391,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+103,0,Insoluble,instability_index,47.751,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+105,1,Insoluble,molecular_weight,47283.174,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+106,1,Insoluble,instability_index,46.853,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+107,0,Insoluble,gravy,0.265,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+108,1,Insoluble,aa_pct_K,9.322,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+109,0,Insoluble,molecular_weight,48849.004,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+111,0,Insoluble,molecular_weight,49491.724,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+112,0,Insoluble,instability_index,40.873,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+115,0,Insoluble,instability_index,47.193,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+117,0,Insoluble,instability_index,48.035,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+118,0,Insoluble,isoelectric_point,9.553,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+120,0,Insoluble,gravy,0.038,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+121,0,Insoluble,molecular_weight,81959.04,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+122,1,Insoluble,isoelectric_point,4.05,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+123,0,Insoluble,instability_index,40.791,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+126,1,Insoluble,instability_index,45.337,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+128,0,Insoluble,instability_index,46.755,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+129,0,Insoluble,aromaticity,0.129,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+130,0,Insoluble,instability_index,48.018,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+131,0,Insoluble,gravy,0.085,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+132,1,Insoluble,instability_index,40.918,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+135,1,Insoluble,isoelectric_point,6.805,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+137,0,Insoluble,instability_index,51.171,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+138,0,Insoluble,instability_index,43.709,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+139,1,Insoluble,instability_index,49.957,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+141,0,Insoluble,instability_index,49.002,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+142,0,Insoluble,instability_index,40.244,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+145,0,Insoluble,molecular_weight,96833.547,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+146,0,Insoluble,aromaticity,0.17,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+147,0,Insoluble,isoelectric_point,5.29,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+151,0,Insoluble,isoelectric_point,5.13,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+153,0,Insoluble,instability_index,44.899,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+154,1,Insoluble,molecular_weight,44304.351,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+156,0,Insoluble,isoelectric_point,7.771,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+159,0,Insoluble,instability_index,41.449,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+160,0,Insoluble,instability_index,41.768,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+163,0,Insoluble,aromaticity,0.17,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+164,0,Insoluble,isoelectric_point,8.246,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+165,1,Insoluble,aromaticity,0.116,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+168,0,Insoluble,instability_index,50.598,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+169,0,Insoluble,gravy,0.023,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+170,0,Insoluble,instability_index,42.834,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+171,0,Insoluble,molecular_weight,99667.278,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+173,0,Insoluble,molecular_weight,19247.464,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+174,1,Insoluble,instability_index,43.73,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+175,1,Insoluble,aa_pct_R,7.692,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+176,0,Insoluble,instability_index,62.077,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+177,0,Insoluble,gravy,0.946,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+180,1,Insoluble,molecular_weight,129981.164,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+181,0,Insoluble,instability_index,42.774,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+182,0,Insoluble,instability_index,45.873,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+183,0,Insoluble,instability_index,60.494,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+184,0,Insoluble,molecular_weight,54744.693,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+186,1,Insoluble,gravy,0.13,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+187,0,Insoluble,gravy,0.711,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+188,0,Insoluble,gravy,0.858,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+190,1,Insoluble,aa_pct_Y,1.153,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+193,0,Insoluble,instability_index,52.277,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+194,0,Insoluble,molecular_weight,47606.747,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+201,0,Insoluble,instability_index,56.199,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+202,0,Insoluble,molecular_weight,88962.94,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+203,0,Insoluble,molecular_weight,20779.579,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+206,0,Insoluble,molecular_weight,31479.159,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+207,0,Insoluble,aa_pct_K,2.756,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+208,0,Insoluble,molecular_weight,37264.665,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+210,0,Insoluble,gravy,0.151,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+211,0,Insoluble,gravy,0.022,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+213,0,Insoluble,aa_pct_Y,0.772,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+216,1,Insoluble,molecular_weight,54649.665,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+218,0,Insoluble,instability_index,43.741,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+220,0,Insoluble,aa_pct_T,2.397,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+222,0,Insoluble,gravy,0.868,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+223,0,Insoluble,aromaticity,0.151,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+224,1,Insoluble,isoelectric_point,9.402,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+225,0,Insoluble,instability_index,43.708,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+227,0,Insoluble,gravy,0.116,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+229,0,Insoluble,instability_index,40.161,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+231,1,Insoluble,gravy,0.523,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+232,0,Insoluble,gravy,0.133,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+236,0,Insoluble,instability_index,50.868,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+240,0,Insoluble,isoelectric_point,9.744,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+242,1,Insoluble,gravy,0.654,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+244,0,Insoluble,instability_index,48.504,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+246,1,Insoluble,aa_pct_K,2.258,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+247,0,Insoluble,molecular_weight,89986.039,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+248,0,Insoluble,instability_index,42.913,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+249,0,Insoluble,instability_index,42.052,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+250,0,Insoluble,instability_index,41.254,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+252,0,Insoluble,molecular_weight,34293.999,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+253,0,Insoluble,molecular_weight,35199.085,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+255,0,Insoluble,molecular_weight,47008.234,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+258,1,Insoluble,molecular_weight,58360.244,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+259,0,Insoluble,gravy,0.168,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+261,0,Insoluble,molecular_weight,53951.118,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+262,0,Insoluble,gravy,0.023,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+266,1,Insoluble,molecular_weight,15655.614,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+268,0,Insoluble,instability_index,41.451,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+269,0,Insoluble,isoelectric_point,9.439,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+271,0,Insoluble,instability_index,44.64,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+272,0,Insoluble,molecular_weight,42237.046,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+273,0,Insoluble,instability_index,40.005,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+280,1,Insoluble,instability_index,41.749,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+283,0,Insoluble,instability_index,43.484,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+285,1,Insoluble,instability_index,41.867,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+287,1,Insoluble,molecular_weight,68962.012,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+289,0,Insoluble,molecular_weight,80478.054,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+291,0,Insoluble,molecular_weight,39753.357,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+292,1,Insoluble,isoelectric_point,5.13,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+293,0,Insoluble,instability_index,47.569,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+295,0,Insoluble,instability_index,43.505,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+296,0,Insoluble,aromaticity,0.127,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+297,1,Insoluble,gravy,0.056,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+299,0,Insoluble,gravy,0.898,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+300,0,Insoluble,instability_index,46.57,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+301,1,Insoluble,instability_index,55.92,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+303,0,Insoluble,instability_index,40.34,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+307,0,Insoluble,gravy,0.828,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+310,1,Insoluble,aromaticity,0.12,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+311,0,Insoluble,aromaticity,0.151,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+314,0,Insoluble,isoelectric_point,5.317,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+317,0,Insoluble,gravy,0.68,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+319,0,Insoluble,fraction_negative,0.078,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+321,0,Insoluble,gravy,0.794,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+322,1,Insoluble,instability_index,43.593,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+323,0,Insoluble,isoelectric_point,6.829,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+324,0,Insoluble,gravy,0.268,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+326,0,Insoluble,gravy,0.19,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+330,0,Insoluble,aromaticity,0.121,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+332,0,Insoluble,instability_index,46.003,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+335,0,Insoluble,molecular_weight,55603.09,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+336,0,Insoluble,molecular_weight,53994.233,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+338,0,Insoluble,instability_index,51.255,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+340,0,Insoluble,instability_index,43.262,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+341,0,Insoluble,instability_index,50.309,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+343,0,Insoluble,molecular_weight,70855.715,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+345,1,Insoluble,instability_index,49.76,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+346,0,Insoluble,aa_pct_V,3.101,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+350,0,Insoluble,molecular_weight,34093.244,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+351,0,Insoluble,gravy,0.091,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+352,0,Insoluble,aromaticity,0.15,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+353,0,Insoluble,gravy,0.91,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+354,0,Insoluble,gravy,0.797,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+356,0,Insoluble,aromaticity,0.13,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+357,0,Insoluble,fraction_charged,0.336,Thioredoxin (Trx),"Very high charged-residue fraction suggests charge-driven misfolding; Trx's small, reducing-environment profile helps here."
+360,1,Insoluble,instability_index,43.788,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+363,0,Insoluble,aa_pct_K,5.556,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+365,0,Insoluble,aa_pct_K,5.637,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+368,0,Insoluble,aromaticity,0.136,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+369,0,Insoluble,instability_index,40.127,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+370,0,Insoluble,gravy,0.878,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+371,0,Insoluble,gravy,0.722,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+374,0,Insoluble,isoelectric_point,9.498,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+376,0,Insoluble,instability_index,48.546,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+377,0,Insoluble,gravy,0.054,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+378,1,Insoluble,aromaticity,0.137,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+379,0,Insoluble,gravy,0.649,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+381,0,Insoluble,aa_pct_K,3.053,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+382,0,Insoluble,aromaticity,0.131,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+383,0,Insoluble,aromaticity,0.142,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+386,0,Insoluble,aromaticity,0.124,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+388,0,Insoluble,molecular_weight,95240.766,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+390,0,Insoluble,aa_pct_K,8.014,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+392,0,Insoluble,instability_index,48.395,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+393,0,Insoluble,gravy,0.825,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+395,0,Insoluble,molecular_weight,35865.711,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+396,0,Insoluble,gravy,0.063,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+397,0,Insoluble,gravy,0.109,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+398,0,Insoluble,instability_index,44.278,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+399,0,Insoluble,isoelectric_point,5.378,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+401,0,Insoluble,instability_index,40.836,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+402,0,Insoluble,instability_index,43.509,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+406,0,Insoluble,aromaticity,0.174,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+409,0,Insoluble,instability_index,41.977,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+410,0,Insoluble,instability_index,53.022,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+411,1,Insoluble,instability_index,65.57,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+414,0,Insoluble,aa_pct_K,8.529,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+415,1,Insoluble,gravy,0.06,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+416,0,Insoluble,aa_pct_M,4.795,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+417,0,Insoluble,molecular_weight,38734.624,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+420,0,Insoluble,aromaticity,0.133,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+421,0,Insoluble,instability_index,43.958,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+425,0,Insoluble,gravy,0.566,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+430,0,Insoluble,fraction_negative,0.049,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+431,0,Insoluble,molecular_weight,54025.981,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+432,0,Insoluble,molecular_weight,62184.981,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+435,0,Insoluble,aromaticity,0.167,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+436,1,Insoluble,molecular_weight,72092.708,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+439,0,Insoluble,instability_index,49.653,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+442,1,Insoluble,instability_index,55.386,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+443,0,Insoluble,instability_index,54.356,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+444,0,Insoluble,molecular_weight,56414.611,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+445,0,Insoluble,gravy,0.452,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+446,0,Insoluble,gravy,0.483,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+447,0,Insoluble,gravy,0.202,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+448,0,Insoluble,gravy,0.378,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+451,1,Insoluble,molecular_weight,11239.813,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+452,0,Insoluble,gravy,0.986,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+454,0,Insoluble,gravy,0.047,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+456,1,Insoluble,molecular_weight,48906.135,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+457,0,Insoluble,aromaticity,0.122,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+460,0,Insoluble,instability_index,42.03,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+461,0,Insoluble,molecular_weight,85356.241,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+462,1,Insoluble,gravy,0.159,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+465,0,Insoluble,instability_index,42.624,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+466,0,Insoluble,gravy,1.118,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+467,0,Insoluble,gravy,0.023,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+468,0,Insoluble,instability_index,45.278,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+471,0,Insoluble,gravy,0.244,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+472,1,Insoluble,molecular_weight,51192.603,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+473,0,Insoluble,aa_pct_E,9.459,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+475,0,Insoluble,instability_index,49.771,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+476,1,Insoluble,instability_index,44.887,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+477,0,Insoluble,gravy,0.013,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+478,0,Insoluble,gravy,0.504,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+480,0,Insoluble,gravy,0.648,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+482,0,Insoluble,molecular_weight,39782.842,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+484,0,Insoluble,instability_index,40.424,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+485,0,Insoluble,aromaticity,0.146,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+489,1,Insoluble,instability_index,42.137,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+490,1,Insoluble,instability_index,40.197,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+493,0,Insoluble,gravy,0.784,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+496,0,Insoluble,instability_index,42.455,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+499,0,Insoluble,gravy,0.036,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+501,1,Insoluble,aa_pct_P,0.926,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+503,0,Insoluble,aa_pct_W,0.0,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+504,0,Insoluble,instability_index,42.991,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+509,0,Insoluble,isoelectric_point,7.855,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+512,0,Insoluble,gravy,0.588,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+513,0,Insoluble,instability_index,48.022,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+515,0,Insoluble,instability_index,53.041,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+516,0,Insoluble,gravy,0.137,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+518,0,Insoluble,fraction_negative,0.095,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+520,1,Insoluble,isoelectric_point,5.598,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+521,0,Insoluble,instability_index,48.093,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+522,0,Insoluble,instability_index,49.808,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+523,1,Insoluble,molecular_weight,52728.412,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+526,0,Insoluble,gravy,0.037,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+527,0,Insoluble,instability_index,44.17,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+528,0,Insoluble,gravy,0.064,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+530,1,Insoluble,molecular_weight,60272.854,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+531,0,Insoluble,instability_index,41.276,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+533,1,Insoluble,molecular_weight,41740.258,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+537,0,Insoluble,instability_index,43.205,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+539,1,Insoluble,gravy,0.047,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+541,0,Insoluble,aa_pct_K,2.555,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+543,0,Insoluble,instability_index,45.515,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+544,0,Insoluble,gravy,1.485,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+545,0,Insoluble,gravy,0.077,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+547,0,Insoluble,molecular_weight,40724.414,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+549,1,Insoluble,aromaticity,0.124,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+550,0,Insoluble,isoelectric_point,8.683,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+552,0,Insoluble,molecular_weight,53464.145,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+555,0,Insoluble,instability_index,46.168,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+556,0,Insoluble,fraction_negative,0.069,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+557,0,Insoluble,isoelectric_point,5.029,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+559,0,Insoluble,isoelectric_point,8.141,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+560,0,Insoluble,molecular_weight,38499.059,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+561,0,Insoluble,instability_index,45.442,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+564,0,Insoluble,aa_pct_Y,1.384,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+565,0,Insoluble,molecular_weight,11805.182,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+566,0,Insoluble,instability_index,46.947,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+568,0,Insoluble,instability_index,49.952,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+569,1,Insoluble,instability_index,45.355,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+573,0,Insoluble,instability_index,52.669,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+574,0,Insoluble,instability_index,44.803,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+576,1,Insoluble,gravy,0.109,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+578,0,Insoluble,fraction_negative,0.107,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+579,0,Insoluble,gravy,0.032,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+581,0,Insoluble,gravy,0.011,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+584,1,Insoluble,gravy,0.105,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+587,0,Insoluble,molecular_weight,51990.677,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+588,0,Insoluble,instability_index,41.706,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+589,0,Insoluble,aromaticity,0.132,MBP (Maltose-Binding Protein),High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well.
+590,0,Insoluble,molecular_weight,45896.723,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+591,0,Insoluble,gravy,0.681,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+592,0,Insoluble,gravy,0.004,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+594,1,Insoluble,instability_index,40.419,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+595,0,Insoluble,molecular_weight,93171.412,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+596,0,Insoluble,molecular_weight,43110.836,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+597,0,Insoluble,instability_index,40.891,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+598,0,Insoluble,instability_index,42.794,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+600,0,Insoluble,molecular_weight,47198.875,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+604,1,Insoluble,gravy,0.255,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+605,1,Insoluble,instability_index,52.185,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+606,1,Insoluble,isoelectric_point,5.142,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+607,1,Insoluble,molecular_weight,37093.888,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+608,0,Insoluble,gravy,0.584,MBP (Maltose-Binding Protein),High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins.
+609,0,Insoluble,isoelectric_point,4.877,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+611,0,Insoluble,instability_index,41.002,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+617,0,Insoluble,aa_pct_R,5.143,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+619,0,Insoluble,isoelectric_point,5.049,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+623,0,Insoluble,instability_index,41.14,SUMO,Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins.
+624,0,Insoluble,molecular_weight,68235.302,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.
+625,1,Insoluble,aromaticity,0.037,SUMO,No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins.

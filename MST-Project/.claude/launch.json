@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "solubility-app",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["protein_solubility/backend/server.py"],
+      "port": 5000
+    }
+  ]
+}

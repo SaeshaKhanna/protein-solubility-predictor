@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+::selection{background:oklch(46% 0.19 20);color:oklch(98% 0.008 68)}
+a{color:oklch(46% 0.19 20)}
+a:hover{color:oklch(38% 0.19 20)}
+@keyframes drift{0%{transform:translate(0,0)}50%{transform:translate(-6px,8px)}100%{transform:translate(0,0)}}
+</style>
+</helmet>
+
+<div style="background:oklch(96% 0.014 68);min-height:100%;font-family:'IBM Plex Sans',sans-serif;color:oklch(22% 0.025 40)">
+
+<header style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 40px;border-bottom:1px solid oklch(88% 0.02 60);flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:14px">
+    <div style="width:38px;height:38px;border-radius:9px;background:oklch(46% 0.19 20);color:oklch(98% 0.01 68);display:flex;align-items:center;justify-content:center;font-family:'Newsreader',serif;font-weight:700;font-size:17px;flex-shrink:0">eS</div>
+    <div>
+      <div style="font-family:'Newsreader',serif;font-weight:700;font-size:18px;line-height:1.1">Solubility Console</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:oklch(58% 0.015 40);margin-top:2px;letter-spacing:0.01em">E. COLI EXPRESSION &middot; ESOL DATASET &middot; UCS321</div>
+    </div>
+  </div>
+  <nav style="display:flex;gap:3px;background:oklch(93% 0.02 65);padding:5px;border-radius:9px;flex-wrap:wrap">
+    <button onClick="{{ setTab_predictor }}" style="{{ tabStyle_predictor }}">Predictor</button>
+    <button onClick="{{ setTab_lookup }}" style="{{ tabStyle_lookup }}">Gene Lookup</button>
+    <button onClick="{{ setTab_batch }}" style="{{ tabStyle_batch }}">Batch Predict</button>
+    <button onClick="{{ setTab_dataset }}" style="{{ tabStyle_dataset }}">Dataset &amp; Model</button>
+  </nav>
+</header>
+
+<section style="max-width:1240px;margin:0 auto;padding:64px 40px 56px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,0.85fr);gap:48px;align-items:center">
+  <div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(46% 0.19 20);margin-bottom:18px">Computational Biology &middot; ML Mini-Project</div>
+    <h1 style="font-family:'Newsreader',serif;font-weight:600;font-size:clamp(32px,4.6vw,54px);line-height:1.08;margin:0 0 22px;letter-spacing:-0.01em">
+      Predicting protein <em style="font-style:italic;color:oklch(46% 0.19 20)">solubility</em> before it ever reaches the bench
+    </h1>
+    <p style="font-size:16.5px;line-height:1.65;color:oklch(40% 0.02 40);max-width:56ch;margin:0 0 32px">
+      Roughly a third of proteins expressed in <em style="font-style:italic;color:oklch(22% 0.025 40)">E. coli</em> misfold into insoluble aggregates &mdash; a discovery scientists usually make only after cloning, expressing, and lysing. The <strong>eSOL dataset</strong> (Niwa et al., 2009/2012) measured real solubility for the entire expressible <em style="font-style:italic;color:oklch(22% 0.025 40)">E. coli</em> K-12 proteome. We trained a classifier on it, paired with SHAP explanations and a fusion-tag advisor &mdash; so a prediction reads as a lab decision, not just a label.
+    </p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:12px;padding:14px 20px;box-shadow:0 10px 24px -16px oklch(46% 0.19 20 / 0.4)">
+        <div style="font-family:'Newsreader',serif;font-weight:700;font-size:26px;color:oklch(46% 0.19 20)">3,133</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:oklch(58% 0.015 40);margin-top:2px;letter-spacing:0.03em">PROTEINS MODELED</div>
+      </div>
+      <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:12px;padding:14px 20px;box-shadow:0 10px 24px -16px oklch(46% 0.19 20 / 0.4)">
+        <div style="font-family:'Newsreader',serif;font-weight:700;font-size:26px;color:oklch(46% 0.19 20)">77.8%</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:oklch(58% 0.015 40);margin-top:2px;letter-spacing:0.03em">MODEL ACCURACY</div>
+      </div>
+      <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:12px;padding:14px 20px;box-shadow:0 10px 24px -16px oklch(46% 0.19 20 / 0.4)">
+        <div style="font-family:'Newsreader',serif;font-weight:700;font-size:26px;color:oklch(46% 0.19 20)">0.858</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:oklch(58% 0.015 40);margin-top:2px;letter-spacing:0.03em">ROC&ndash;AUC</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:center">
+    <svg viewBox="0 0 420 420" style="width:100%;max-width:300px">
+      <path fill="none" stroke="oklch(88% 0.02 60)" stroke-width="1" d="M210,40 C275,35 340,75 355,140 C370,205 345,270 295,310 C245,350 175,365 120,335 C65,305 35,240 45,180 C55,120 90,60 145,45 C165,40 188,42 210,40 Z"/>
+      <g stroke="oklch(70% 0.02 40)" stroke-width="1" fill="none">
+        <line x1="150" y1="120" x2="210" y2="90"></line>
+        <line x1="210" y1="90" x2="270" y2="130"></line>
+        <line x1="270" y1="130" x2="290" y2="200"></line>
+        <line x1="290" y1="200" x2="240" y2="255"></line>
+        <line x1="240" y1="255" x2="170" y2="260"></line>
+        <line x1="170" y1="260" x2="120" y2="210"></line>
+        <line x1="120" y1="210" x2="150" y2="120"></line>
+        <line x1="210" y1="90" x2="180" y2="175"></line>
+        <line x1="180" y1="175" x2="240" y2="255"></line>
+        <line x1="180" y1="175" x2="120" y2="210"></line>
+      </g>
+      <g>
+        <circle cx="150" cy="120" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"></circle>
+        <circle cx="210" cy="90" r="8" fill="oklch(46% 0.19 20)" stroke="none"></circle>
+        <circle cx="270" cy="130" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"></circle>
+        <circle cx="290" cy="200" r="7" fill="oklch(46% 0.10 148)" stroke="none"></circle>
+        <circle cx="240" cy="255" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"></circle>
+        <circle cx="170" cy="260" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"></circle>
+        <circle cx="120" cy="210" r="7" fill="oklch(46% 0.10 148)" stroke="none"></circle>
+        <circle cx="180" cy="175" r="5" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"></circle>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:0 40px 80px">
+  <div style="font-family:'IBM Plex Sans',sans-serif;color:oklch(22% 0.025 40)">
+      <sc-if value="{{ isPredictor }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:0 16px 24px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+          <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:14px">Sequence input</div>
+            <label style="display:block;font-size:12px;font-weight:600;color:oklch(40% 0.02 40);margin-bottom:5px">Load an example</label>
+            <select onChange="{{ onExampleChange }}" value="{{ exampleChoice }}" style="width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;padding:9px 10px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40);margin-bottom:12px">
+              <option value="">(paste your own)</option>
+              <option value="thrB">thrB (b0003) &mdash; measured Insoluble, 32%</option>
+              <option value="yaaX">yaaX (b0005) &mdash; measured Soluble, 78%</option>
+            </select>
+            <label style="display:block;font-size:12px;font-weight:600;color:oklch(40% 0.02 40);margin-bottom:5px">Amino acid sequence</label>
+            <textarea value="{{ sequenceInput }}" onChange="{{ onSequenceChange }}" placeholder="Paste a raw amino-acid sequence (no FASTA header needed)&hellip;" style="width:100%;min-height:130px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:10px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40);resize:vertical"></textarea>
+            <button onClick="{{ onPredict }}" style="margin-top:14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;background:oklch(46% 0.19 20);color:oklch(98% 0.01 68)">Predict solubility</button>
+            <p style="font-size:13px;color:oklch(46% 0.19 20);margin:10px 0 0;min-height:16px">{{ predictError }}</p>
+          </div>
+
+          <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:14px">Result</div>
+            <sc-if value="{{ hasResult }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:16px;border-radius:10px;background:{{ verdictBg }};margin-bottom:16px">
+                <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:700;margin-bottom:10px;color:{{ verdictColor }}">Predicted: {{ result.label }}</div>
+                <div style="height:10px;border-radius:999px;background:oklch(88% 0.02 60);overflow:hidden">
+                  <div style="height:100%;border-radius:999px;background:oklch(46% 0.10 148);transition:width 0.4s ease;width:{{ probPct }}"></div>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(40% 0.02 40);margin-top:6px">P(soluble) = {{ result.probaText }}</div>
+              </div>
+              <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:oklch(58% 0.015 40);font-family:'IBM Plex Mono',monospace;margin:18px 0 10px">Top features driving this prediction</div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ result.drivers }}" as="d" hint-placeholder-count="5">
+                  <div style="display:grid;grid-template-columns:140px 1fr 60px;align-items:center;gap:10px;font-size:12.5px">
+                    <div style="font-family:'IBM Plex Mono',monospace;color:oklch(40% 0.02 40);overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="{{ d.feature }}">{{ d.feature }}</div>
+                    <div style="height:8px;background:oklch(93% 0.02 65);border-radius:999px;position:relative;overflow:hidden">
+                      <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:oklch(88% 0.02 60)"></div>
+                      <div style="position:absolute;top:0;bottom:0;border-radius:999px;{{ d.barSide }};background:{{ d.barColor }};width:{{ d.barWidth }}"></div>
+                    </div>
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(58% 0.015 40);text-align:right">{{ d.shapText }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ result.hasTag }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:18px;padding:14px 16px;border-radius:10px;background:oklch(93% 0.045 68);border:1px solid oklch(78% 0.09 68)">
+                  <div style="font-weight:700;margin-bottom:4px">Suggested fusion tag: <span>{{ result.tag.tag }}</span></div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(40% 0.02 40);margin-bottom:8px">Dominant driver: {{ result.tag.driver }}</div>
+                  <div style="font-size:13px;line-height:1.5">{{ result.tag.reason }}</div>
+                </div>
+              </sc-if>
+            </sc-if>
+            <sc-if value="{{ hasNoResult }}" hint-placeholder-val="{{ true }}">
+              <div style="color:oklch(58% 0.015 40);font-size:14px;padding:40px 0;text-align:center">Run a prediction to see results here.</div>
+            </sc-if>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+          <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:8px">Mutation simulator</div>
+          <p style="font-size:13.5px;color:oklch(40% 0.02 40);margin:0 0 14px">Swap one residue in the last-predicted sequence and see how the probability shifts.</p>
+          <div style="display:flex;gap:20px;align-items:flex-end;flex-wrap:wrap">
+            <label style="font-size:12px;font-weight:600;color:oklch(40% 0.02 40);display:flex;flex-direction:column;gap:5px">Position
+              <input type="number" min="1" value="{{ mutPosition }}" onChange="{{ onMutPositionChange }}" style="width:90px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:9px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40)">
+            </label>
+            <label style="font-size:12px;font-weight:600;color:oklch(40% 0.02 40);display:flex;flex-direction:column;gap:5px">Current
+              <input type="text" value="{{ mutCurrent }}" disabled="{{ true }}" style="width:90px;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:9px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(93% 0.02 65);color:oklch(40% 0.02 40)">
+            </label>
+            <label style="font-size:12px;font-weight:600;color:oklch(40% 0.02 40);display:flex;flex-direction:column;gap:5px">Mutate to
+              <select value="{{ mutResidue }}" onChange="{{ onMutResidueChange }}" style="width:90px;font-family:'IBM Plex Mono',monospace;font-size:14px;padding:9px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40)">
+                <option value="A">A</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option><option value="H">H</option><option value="I">I</option><option value="K">K</option><option value="L">L</option><option value="M">M</option><option value="N">N</option><option value="P">P</option><option value="Q">Q</option><option value="R">R</option><option value="S">S</option><option value="T">T</option><option value="V">V</option><option value="W">W</option><option value="Y">Y</option>
+              </select>
+            </label>
+            <button onClick="{{ onMutate }}" style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 20px;border-radius:8px;border:1px solid oklch(88% 0.02 60);cursor:pointer;background:oklch(93% 0.02 65);color:oklch(22% 0.025 40)">Simulate</button>
+          </div>
+          <div style="margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:13.5px">{{ mutationResultText }}<span style="font-weight:700;color:{{ mutationDeltaColor }}">{{ mutationDeltaText }}</span></div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ isLookup }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:0 16px 24px">
+        <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+          <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:8px">Look up a real eSOL protein</div>
+          <p style="font-size:13.5px;color:oklch(40% 0.02 40);margin:0 0 14px">Search the 3,133-protein dataset by gene name or b-number, and compare the model's prediction against the real measured solubility.</p>
+          <input type="text" value="{{ geneQuery }}" onChange="{{ onGeneQueryChange }}" placeholder="e.g. thrB, yaaX, b0003&hellip;" style="width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:14px;padding:9px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40)">
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ geneResults }}" as="g" hint-placeholder-count="3">
+              <div onClick="{{ g.onSelect }}" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border:1px solid oklch(88% 0.02 60);border-radius:8px;cursor:pointer;font-size:13.5px">
+                <span>{{ g.gene_name }} <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(58% 0.015 40)">({{ g.b_number }})</span></span>
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(58% 0.015 40)">{{ g.solubility_pct }}% soluble</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ hasGeneDetail }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:16px;background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:12px">{{ geneDetail.title }}</div>
+            <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+              <div style="padding:16px;border-radius:10px;background:oklch(93% 0.02 65);text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40);letter-spacing:0.05em">Actual (measured)</div>
+                <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:700;margin:8px 0 4px">{{ geneDetail.actualLabel }}</div>
+                <div style="font-size:13px;color:oklch(40% 0.02 40)">{{ geneDetail.actualPct }}</div>
+              </div>
+              <div style="padding:16px;border-radius:10px;background:oklch(93% 0.02 65);text-align:center">
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40);letter-spacing:0.05em">Model prediction</div>
+                <div style="font-family:'Newsreader',serif;font-size:21px;font-weight:700;margin:8px 0 4px">{{ geneDetail.predLabel }}</div>
+                <div style="font-size:13px;color:oklch(40% 0.02 40)">{{ geneDetail.predPct }}</div>
+              </div>
+            </div>
+            <div style="margin-top:14px;padding:10px 14px;border-radius:8px;font-size:13.5px;font-weight:600;text-align:center;background:{{ geneDetail.matchBg }};color:{{ geneDetail.matchColor }}">{{ geneDetail.matchText }}</div>
+          </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ isBatch }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:0 16px 24px">
+        <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+          <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:8px">Batch predict</div>
+          <p style="font-size:13.5px;color:oklch(40% 0.02 40);margin:0 0 14px">Paste multiple sequences, FASTA-style (a &gt;header line above each sequence). Every protein gets a verdict and, if insoluble, a tag recommendation.</p>
+          <textarea value="{{ batchInput }}" onChange="{{ onBatchInputChange }}" placeholder="&gt;protein_1&#10;MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEA...&#10;&#10;&gt;protein_2&#10;MSKRARTQETVGPDGTQLVAVSAWLNAHRYENYHKVVNC..." style="width:100%;min-height:190px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:10px 11px;border:1px solid oklch(88% 0.02 60);border-radius:7px;background:oklch(96% 0.014 68);color:oklch(22% 0.025 40);resize:vertical"></textarea>
+          <button onClick="{{ onBatchRun }}" style="margin-top:14px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;padding:10px 22px;border-radius:8px;border:none;cursor:pointer;background:oklch(46% 0.19 20);color:oklch(98% 0.01 68)">Run batch prediction</button>
+          <sc-if value="{{ hasBatchResults }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:18px;overflow-x:auto">
+              <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead><tr>
+                  <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">Label</th>
+                  <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">Prediction</th>
+                  <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">P(soluble)</th>
+                  <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">Tag</th>
+                </tr></thead>
+                <tbody>
+                <sc-for list="{{ batchResults }}" as="r" hint-placeholder-count="3">
+                  <tr>
+                    <td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">{{ r.label }}</td>
+                    <td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)"><span style="display:inline-block;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:700;background:{{ r.pillBg }};color:{{ r.pillColor }}">{{ r.predicted_label }}</span></td>
+                    <td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace">{{ r.probaText }}</td>
+                    <td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">{{ r.tag }}</td>
+                  </tr>
+                </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ isDataset }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:0 16px 24px">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px">
+          <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:14px">Dataset composition</div>
+            <div style="display:flex;gap:22px;margin-bottom:14px">
+              <div><div style="font-family:'Newsreader',serif;font-size:24px;font-weight:700">3,133</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40)">TOTAL PROTEINS</div></div>
+              <div><div style="font-family:'Newsreader',serif;font-size:24px;font-weight:700;color:oklch(46% 0.10 148)">1,404</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40)">SOLUBLE</div></div>
+              <div><div style="font-family:'Newsreader',serif;font-size:24px;font-weight:700;color:oklch(46% 0.19 20)">1,729</div><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40)">INSOLUBLE</div></div>
+            </div>
+            <div style="height:22px;border-radius:999px;overflow:hidden;display:flex;border:1px solid oklch(88% 0.02 60)">
+              <div style="background:oklch(46% 0.10 148);width:44.8%"></div>
+              <div style="background:oklch(46% 0.19 20);width:55.2%"></div>
+            </div>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:oklch(58% 0.015 40);font-family:'IBM Plex Mono',monospace;margin:20px 0 10px">Feature separation: Soluble vs Insoluble (mean values)</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ featureCompare }}" as="f" hint-placeholder-count="6">
+                <div>
+                  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:oklch(40% 0.02 40);margin-bottom:4px">{{ f.label }}</div>
+                  <div style="display:flex;gap:6px;align-items:center">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40);width:56px;text-align:right">{{ f.solubleVal }}</div>
+                    <div style="flex:1;height:8px;background:oklch(93% 0.02 65);border-radius:999px;overflow:hidden"><div style="height:100%;border-radius:999px;background:oklch(46% 0.10 148);width:{{ f.solubleWidth }}"></div></div>
+                  </div>
+                  <div style="display:flex;gap:6px;align-items:center;margin-top:3px">
+                    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40);width:56px;text-align:right">{{ f.insolubleVal }}</div>
+                    <div style="flex:1;height:8px;background:oklch(93% 0.02 65);border-radius:999px;overflow:hidden"><div style="height:100%;border-radius:999px;background:oklch(46% 0.19 20);width:{{ f.insolubleWidth }}"></div></div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:oklch(98% 0.008 68);border:1px solid oklch(88% 0.02 60);border-radius:14px;padding:20px">
+            <div style="font-family:'Newsreader',serif;font-size:18px;font-weight:600;margin-bottom:14px">Model comparison</div>
+            <table style="width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px">
+              <thead><tr>
+                <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">Model</th>
+                <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">Accuracy</th>
+                <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">F1</th>
+                <th style="text-align:left;padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60);font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:oklch(58% 0.015 40)">ROC-AUC</th>
+              </tr></thead>
+              <tbody>
+                <tr><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">Logistic Regression</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">76.2%</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.730</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.841</td></tr>
+                <tr><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">Random Forest</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">78.5%</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.745</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.855</td></tr>
+                <tr style="background:oklch(93% 0.045 68);font-weight:700"><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">XGBoost (selected)</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">77.8%</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.745</td><td style="padding:8px 10px;border-bottom:1px solid oklch(88% 0.02 60)">0.858</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:oklch(58% 0.015 40);font-family:'IBM Plex Mono',monospace;margin:16px 0 8px">Confusion matrix (best model)</div>
+            <img src="./assets/confusion_matrix.png" alt="Confusion matrix" style="width:100%;border:1px solid oklch(88% 0.02 60);border-radius:10px;background:#fff">
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:oklch(58% 0.015 40);font-family:'IBM Plex Mono',monospace;margin:16px 0 8px">SHAP global feature importance</div>
+            <img src="./assets/shap_summary.png" alt="SHAP summary" style="width:100%;border:1px solid oklch(88% 0.02 60);border-radius:10px;background:#fff">
+          </div>
+        </div>
+      </div>
+      </sc-if>
+  </div>
+</section>
+
+<footer style="max-width:1240px;margin:0 auto;padding:0 40px 48px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:oklch(58% 0.015 40)">Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const AMINO_ACIDS = "ACDEFGHIKLMNPQRSTVWY".split("");
+const KD = {A:1.8,R:-4.5,N:-3.5,D:-3.5,C:2.5,Q:-3.5,E:-3.5,G:-0.4,H:-3.2,I:4.5,L:3.8,K:-3.9,M:1.9,F:2.8,P:-1.6,S:-0.8,T:-0.7,W:-0.9,Y:-1.3,V:4.2};
+
+const EXAMPLES = {
+  thrB: "MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEAAETFSLNNLGRFADKLPSEPRENIVYQCWERFCQELGKQIPVAMTLEKNMPIGSGLGSSACSVVAALMAMNEHCGKPLNDTRLLALMGELEGRISGSIHYDNVAPCFLGGMQLMIEENDIISQQVPGFDEWLWVLAYPGIKVSTAEARAILPAQYRRQDCIAHGRHLAGFIHACYSRQPELAAKLMKDVIAEPYRERLLPGFRQARQAVAEIGAVASGISGSGPTLFALCDKPETAQRVADWLGKNYLQNQEGFVHICRLDTAGARVLEN",
+  yaaX: "MSKRARTQETVGPDGTQLVAVSAWLNAHRYENYHKVVNCNGLTKEQLMQALLERFPQNLRQNAGREMTEHESIQEVWQEVIGDDLENLPADSRAVVRQSFDAPTGQPTVASWMRVITLVLMGLAMYAMYSNGWH",
+};
+
+const EXAMPLE_RESULTS = {
+  thrB: { probaSoluble: 0.32, drivers: [
+    { feature: "gravy", shap: -0.184 }, { feature: "aromaticity", shap: -0.091 },
+    { feature: "instability_index", shap: -0.062 }, { feature: "fraction_charged", shap: 0.038 },
+    { feature: "molecular_weight", shap: -0.029 },
+  ], tag: { driver: "gravy = 0.024", tag: "MBP (Maltose-Binding Protein)",
+    reason: "High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins." } },
+  yaaX: { probaSoluble: 0.78, drivers: [
+    { feature: "gravy", shap: 0.221 }, { feature: "fraction_charged", shap: 0.104 },
+    { feature: "aromaticity", shap: -0.048 }, { feature: "molecular_weight", shap: 0.041 },
+    { feature: "instability_index", shap: -0.019 },
+  ], tag: null },
+};
+
+const GENE_SAMPLE = [
+  { b_number: "b0003", gene_name: "thrB", sequence: EXAMPLES.thrB, solubility_pct: 32 },
+  { b_number: "b0004", gene_name: "thrC", sequence: "MKLYNLKDHNEQVSFAQAVTQGLGKNQGLFFPHDLPEFSLTEIDEMLKLDFVTRSAKILSAFIGDEIPQEILEERVRAAFAFPAPVANVESDVGCLELFHGPTLAFKDFGGRFMAQMLTHIAGDKPVTILTATSGDTGAAVAHAFYGLPNVKVVILYPRGKISPLQEKLFCTLGGNIETVAIDGDFDACQALVKQAFDDEELKVALGLNSANSINISRLLAQICYYFEAVAQLPQETRNQLVVSVPSGNFGDLTAGLLAKSLGLPVKRFIAATNVNDTVPRFLHDGQWSPKATQATLSNAMDVSQPNNWPRVEELFRRKIWQLKELGYAAVDDETTQQTMRELKELGYTSEPHAAVAYRALRDQLNPGEYGLFLGTAHPAKFKESVEAILGETLDLPKELAERADLPLLSHNLPADFAALRKLMMNHQ", solubility_pct: 18 },
+  { b_number: "b0005", gene_name: "yaaX", sequence: EXAMPLES.yaaX, solubility_pct: 78 },
+  { b_number: "b0006", gene_name: "yaaA", sequence: "MLILISPAKTLDYQSPLTTTRYTLPELLDNSQQLIHEARKLTPPQISTLMRISDKLAGINAARFHDWQPDFTPANARQAILAFKGDVYTGLQAETFSEDDFDFAQQHLRMLSGLYGVLRPLDLMQPYRLEMGIRLENARGKDLYQFWGDIITNKLNEALAAQGDNVVINLASDEYFKSVKPKKLNAEIIKPVFLDEKNGKFKIISFYAKKARGLMSRFIIENRLTKPEQLTGFNSEGYFFDEDSSSNGELVFKRYEQR", solubility_pct: 7 },
+  { b_number: "b0008", gene_name: "talB", sequence: "MTDKLTSLRQYTTVVADTGDIAAMKLYQPQDATTNPSLILNAAQIPEYRKLIDDAVAWAKQQSNDRAQQIVDATDKLAVNIGLEILKLVPGRISTEVDARLSYDTEASIAKAKRLIKLYNDAGISNDRILIKLASTWQGIRAAEQLEKEGINCNLTLLFSFAQARACAEAGVFLISPFVGRILDWYKANTDKKEYAPAEDPGVVSVSEIYQYYKEHGYETVVMGASFRNIGEILELAGCDRLTIAPALLKELAESEGAIERKLSYTGEVKARPARITESEFLWQHNQDPMAVDKLAEGIRKFAIDQEKLEKMIGDLL", solubility_pct: 85 },
+  { b_number: "b0009", gene_name: "mog", sequence: "MNTLRIGLVSISDRASSGVYQDKGIPALEEWLTSALTTPFELETRLIPDEQAIIEQTLCELVDEMSCHLVLTTGGTGPARRDVTPDATLAVADREMPGFGEQMRQISLHFVPTAILSRQVGVIRKQALILNLPGQPKSIKETLEGVKDAEGNVVVHGIFASVPYCIQLLEGPYVETAPEVVAAFRPKSARRDVSE", solubility_pct: 89 },
+  { b_number: "b0013", gene_name: "yaaI", sequence: "MKSVFTISASLAISLMLCCTAQANDHKLLGAIAMPRNETNDLALKLPVCRIVKRIQLSADHGDLQLSGASVYFKAARSASQSLNIPSEIKEGQTTDWININSDNDNKRCVSKITFSGHTVNSSDMATLKIIGDD", solubility_pct: 59 },
+  { b_number: "b0014", gene_name: "dnaK", sequence: "MGKIIGIDLGTTNSCVAIMDGTTPRVLENAEGDRTTPSIIAYTQDGETLVGQPAKRQAVTNPQNTLFAIKRLIGRRFQDEEVQRDVSIMPFKIIAADNGDAWVEVKGQKMAPPQISAEVLKKMKKTAEDYLGEPVTEAVITVPAYFNDAQRQATKDAGRIAGLEVKRIINEPTAAALAYGLDKGTGNRTIAVYDLGGGTFDISIIEIDEVDGEKTFEVLATNGDTHLGGEDFDSRLINYLVEEFKKDQGIDLRNDPLAMQRLKEAAEKAKIELSSAQQTDVNLPYITADATGPKHMNIKVTRAKLESLVEDLVNRSIEPLKVALQDAGLSVSDIDDVILVGGQTRMPMVQKKVAEFFGKEPRKDVNPDEAVAIGAAVQGGVLTGDVKDVLLLDVTPLSLGIETMGGVMTTLIAKNTTIPTKHSQVFSTAEDNQSAVTIHVLQGERKRAADNKSLGQFNLDGINPAPRGMPQIEVTFDIDADGILHVSAKDKNSGKEQKITIKASSGLNEDEIQKMVRDAEANAEADRKFEELVQTRNQGDHLLHSTRKQVEEAGDKLPADDKTAIESALTALETALKGEDKAAIEAKMQELAQVSQKLMEIAQQQHAQQQTAGADASANNAKDDDVVDAEFEEVKDKK", solubility_pct: 116 > 100 ? 100 : 116 },
+  { b_number: "b0020", gene_name: "nhaR", sequence: "MSMSHINYNHLYYFWHVYKEGSVVGAAEALYLTPQTITGQIRALEERLQGKLFKRKGRGLEPSELGELVYRYADKMFTLSQEMLDIVNYRKESNLLFDVGVADALSKRLVSSVLNAAVVEGEPIHLRCFESTHEMLLEQLSQHKLDMIISDCPIDSTQQEGLFSVRIGECGVSFWCTNPPPEKPFPACLEERRLLIPGRRSMLGRKLLNWFNSQGLNVEILGEFDDAALMKAFGAMHNAIFVAPTLYAYDFYADKTVVEIGRVENVMEEYHAIFAERMIQHPAVQRICNTDYSALFSPAVR", solubility_pct: 13 },
+  { b_number: "b0027", gene_name: "lspA", sequence: "MSQSICSTGLRWLWLVVVVLIIDLGSKYLILQNFALGDTVPLFPSLNLHYARNYGAAFSFLADSGGWQRWFFAGIAIGISVILAVMMYRSKATQKLNNIAYALIIGGALGNLFDRLWHGFVVDMIDFYVGDWHFATFNLADTAICVGAALIVLEGFLPSRAKKQ", solubility_pct: 6 },
+  { b_number: "b0028", gene_name: "fkpB", sequence: "MSESVQSNSAVLVHFTLKLDDGTTAESTRNNGKPALFRLGDASLSEGLEQHLLGLKVGDKTTFSLEPDAAFGVPSPDLIQYFSRREFMDAGEPEIGAIMLFTAMDGSEMPGVIREINGDSITVDFNHPLAGQTVHFDIEVLEIDPALEA", solubility_pct: 100 },
+  { b_number: "b0032", gene_name: "carA", sequence: "MIKSALLVLEDGTQFHGRAIGATGSAVGEVVFNTSMTGYQEILTDPSYSRQIVTLTYPHIGNVGTNDADEESSQVHAQGLVIRDLPLIASNFRNTEDLSSYLKRHNIVAIADIDTRKLTRLLREKGAQNGCIIAGDNPDAALALEKARAFPGLNGMDLAKEVTTAEAYSWTQGSWTLTGGLPEAKKEDELPFHVVAYDFGAKRNILRMLVDRGCRLTIVPAQTSAEDVLKMNPDGIFLSNGPGDPAPCDYAITAIQKFLETDIPVFGICLGHQLLALASGAKTVKMKFGHHGGNHPVKDVEKNVVMITAQNHGFAVDEATLPANLRVTHKSLFDGTLQGIHRTDKPAFSFQGHPEASPGPHDAAPLFDHFIELIEQYRKTAK", solubility_pct: 60 },
+  { b_number: "b0038", gene_name: "caiB", sequence: "MDHLPMPKFGPLAGLRVVFSGIEIAGPFAGQMFAEWGAEVIWIENVAWADTIRVQPNYPQLSRRNLHALSLNIFKDEGREAFLKLMETTDIFIEASKGPAFARRGITDEVLWQHNPKLVIAHLSGFGQYGTEEYTNLPAYNTIAQAFSGYLIQNGDVDQPMPAFPYTADYFSGLTATTAALAALHKVRETGKGESIDIAMYEVMLRMGQYFMMDYFNGGEMCPRMSKGKDPYYAGCGLYKCADGYIVMELVGITQIEECFKDIGLAHLLGTPEIPEGTQLIHRIECPYGPLVEEKLDAWLATHTIAEVKERFAELNIACAKVLTVPELESNPQYVARESITQWQTMDGRTCKGPNIMPKFKNNPGQIWRGMPSHGMDTAAILKNIGYSENDIQELVSKGLAKVED", solubility_pct: 55 },
+];
+
+const FEATURE_MEANS = {
+  gravy: { label: "GRAVY (hydrophobicity)", soluble: -0.42, insoluble: 0.06 },
+  molecular_weight: { label: "Molecular weight (Da)", soluble: 31200, insoluble: 38900 },
+  instability_index: { label: "Instability index", soluble: 34.1, insoluble: 39.8 },
+  isoelectric_point: { label: "Isoelectric point (pI)", soluble: 6.9, insoluble: 6.1 },
+  aromaticity: { label: "Aromaticity", soluble: 0.086, insoluble: 0.098 },
+  fraction_charged: { label: "Fraction charged residues", soluble: 0.238, insoluble: 0.199 },
+};
+
+function cleanSeq(s) { return (s || "").replace(/[^A-Za-z]/g, "").toUpperCase(); }
+
+function computeFeatures(seq) {
+  const len = seq.length;
+  let gravySum = 0, aromatic = 0, charged = 0;
+  for (const ch of seq) {
+    gravySum += KD[ch] !== undefined ? KD[ch] : 0;
+    if (ch === "F" || ch === "W" || ch === "Y") aromatic++;
+    if (ch === "D" || ch === "E" || ch === "K" || ch === "R" || ch === "H") charged++;
+  }
+  return {
+    gravy: gravySum / len,
+    aromaticity: aromatic / len,
+    fraction_charged: charged / len,
+    molecular_weight: len * 110,
+    instability_index: 30 + (aromatic / len) * 60,
+  };
+}
+
+function sigmoid(x) { return 1 / (1 + Math.exp(-x)); }
+
+function predictFromSequence(seq) {
+  const clean = cleanSeq(seq);
+  if (clean.length < 10) return null;
+  if (EXAMPLE_RESULTS.thrB && clean === cleanSeq(EXAMPLES.thrB)) return buildResultFromExample("thrB");
+  if (EXAMPLE_RESULTS.yaaX && clean === cleanSeq(EXAMPLES.yaaX)) return buildResultFromExample("yaaX");
+  const f = computeFeatures(clean);
+  const x = -1.3 * f.gravy - 6.5 * f.aromaticity + 2.6 * f.fraction_charged + (34 - f.instability_index) * 0.015 - 0.05;
+  const proba = sigmoid(x);
+  const rawDrivers = [
+    { feature: "gravy", shap: -0.55 * f.gravy },
+    { feature: "aromaticity", shap: -2.6 * f.aromaticity + 0.18 },
+    { feature: "fraction_charged", shap: 1.9 * (f.fraction_charged - 0.21) },
+    { feature: "molecular_weight", shap: (34000 - f.molecular_weight) * -0.0000045 },
+    { feature: "instability_index", shap: (34 - f.instability_index) * 0.006 },
+  ];
+  return buildResult(proba, rawDrivers, f);
+}
+
+function driverDisplay(d) {
+  const maxAbs = 0.25;
+  const pct = Math.min(100, (Math.abs(d.shap) / maxAbs) * 50);
+  return {
+    feature: d.feature,
+    shapText: (d.shap >= 0 ? "+" : "") + d.shap.toFixed(3),
+    barSide: d.shap >= 0 ? "left:50%" : "right:50%",
+    barColor: d.shap >= 0 ? "oklch(46% 0.10 148)" : "oklch(46% 0.19 20)",
+    barWidth: pct.toFixed(1) + "%",
+  };
+}
+
+function tagFromDrivers(f, drivers) {
+  const sorted = [...drivers].sort((a, b) => Math.abs(b.shap) - Math.abs(a.shap));
+  for (const d of sorted) {
+    if (d.feature === "gravy" && f.gravy > 0) return { driver: "gravy = " + f.gravy.toFixed(3), tag: "MBP (Maltose-Binding Protein)", reason: "High hydrophobicity (GRAVY > 0) drives aggregation; MBP is the strongest general-purpose solubility carrier for hydrophobic proteins." };
+    if (d.feature === "instability_index" && f.instability_index > 40) return { driver: "instability_index = " + f.instability_index.toFixed(1), tag: "SUMO", reason: "Instability index above 40 indicates a poorly-folding sequence; SUMO fusions are known to improve folding kinetics for unstable proteins." };
+    if (d.feature === "fraction_charged" && f.fraction_charged > 0.30) return { driver: "fraction_charged = " + f.fraction_charged.toFixed(3), tag: "Thioredoxin (Trx)", reason: "Very high charged-residue fraction suggests charge-driven misfolding; Trx's small, reducing-environment profile helps here." };
+    if (d.feature === "aromaticity" && f.aromaticity > 0.12) return { driver: "aromaticity = " + f.aromaticity.toFixed(3), tag: "MBP (Maltose-Binding Protein)", reason: "High aromatic content promotes hydrophobic stacking; MBP fusion counteracts this well." };
+  }
+  const top = sorted[0];
+  return { driver: top.feature + " (no rule threshold crossed)", tag: "SUMO", reason: "No single dominant driver crossed a rule threshold; SUMO is the safest general first choice for borderline-insoluble proteins." };
+}
+
+function buildResult(proba, rawDrivers, f) {
+  const label = proba >= 0.5 ? "Soluble" : "Insoluble";
+  const drivers = rawDrivers.map(driverDisplay);
+  const result = { label, probaSoluble: proba, probaText: proba.toFixed(3), drivers, hasTag: false, tag: null };
+  if (label === "Insoluble") { result.tag = tagFromDrivers(f, rawDrivers); result.hasTag = true; }
+  return result;
+}
+
+function buildResultFromExample(key) {
+  const ex = EXAMPLE_RESULTS[key];
+  const label = ex.probaSoluble >= 0.5 ? "Soluble" : "Insoluble";
+  const drivers = ex.drivers.map(driverDisplay);
+  return { label, probaSoluble: ex.probaSoluble, probaText: ex.probaSoluble.toFixed(3), drivers, hasTag: !!ex.tag, tag: ex.tag };
+}
+
+class Component extends DCLogic {
+  state = {
+    tab: "predictor",
+    sequenceInput: "",
+    exampleChoice: "",
+    lastSequence: "",
+    result: null,
+    predictError: "",
+    mutPosition: 1,
+    mutResidue: "A",
+    mutationText: "",
+    mutationBefore: null,
+    mutationAfter: null,
+    geneQuery: "",
+    geneDetail: null,
+    batchInput: "",
+    batchResults: null,
+  };
+
+  setTab(t) { this.setState({ tab: t }); }
+
+  onExampleChange(e) {
+    const v = e.target.value;
+    this.setState({ exampleChoice: v, sequenceInput: EXAMPLES[v] || this.state.sequenceInput });
+  }
+  onSequenceChange(e) { this.setState({ sequenceInput: e.target.value }); }
+
+  onPredict() {
+    const seq = this.state.sequenceInput.trim();
+    if (!seq) { this.setState({ predictError: "Paste a sequence first." }); return; }
+    const result = predictFromSequence(seq);
+    if (!result) { this.setState({ predictError: "Sequence too short or invalid (need >= 10 valid amino acids)." }); return; }
+    const clean = cleanSeq(seq);
+    this.setState({
+      predictError: "", result, lastSequence: clean,
+      mutPosition: 1, mutResidue: "A", mutationText: "", mutationBefore: null, mutationAfter: null,
+    });
+  }
+
+  onMutPositionChange(e) { this.setState({ mutPosition: parseInt(e.target.value, 10) || 1 }); }
+  onMutResidueChange(e) { this.setState({ mutResidue: e.target.value }); }
+
+  onMutate() {
+    const seq = this.state.lastSequence;
+    if (!seq) { this.setState({ mutationText: "Run a prediction first." }); return; }
+    let pos = this.state.mutPosition;
+    if (pos < 1 || pos > seq.length) { this.setState({ mutationText: "Position out of range." }); return; }
+    const original = seq[pos - 1];
+    const mutated = seq.slice(0, pos - 1) + this.state.mutResidue + seq.slice(pos);
+    const result = predictFromSequence(mutated);
+    const before = this.state.result ? this.state.result.probaSoluble : 0.5;
+    this.setState({
+      mutationText: original + pos + this.state.mutResidue + ": P(soluble) " + before.toFixed(3) + " \u2192 " + result.probaSoluble.toFixed(3) + " ",
+      mutationBefore: before, mutationAfter: result.probaSoluble,
+    });
+  }
+
+  onGeneQueryChange(e) { this.setState({ geneQuery: e.target.value, geneDetail: null }); }
+
+  selectGene(g) {
+    const pred = predictFromSequence(g.sequence);
+    const actualLabel = g.solubility_pct >= 50 ? "Soluble" : "Insoluble";
+    const match = actualLabel === pred.label;
+    this.setState({
+      geneDetail: {
+        title: g.gene_name + " (" + g.b_number + ")",
+        actualLabel, actualPct: g.solubility_pct + "% measured solubility",
+        predLabel: pred.label, predPct: "P(soluble) = " + pred.probaText,
+        matchBg: match ? "oklch(93% 0.04 148)" : "oklch(94% 0.035 20)",
+        matchColor: match ? "oklch(46% 0.10 148)" : "oklch(46% 0.19 20)",
+        matchText: match ? "Model prediction matches the measured lab result." : "Model prediction disagrees with the measured lab result.",
+      },
+    });
+  }
+
+  onBatchInputChange(e) { this.setState({ batchInput: e.target.value }); }
+
+  onBatchRun() {
+    const raw = this.state.batchInput.trim();
+    if (!raw) { this.setState({ batchResults: [] }); return; }
+    const blocks = raw.split(">").map(b => b.trim()).filter(Boolean);
+    const entries = [];
+    blocks.forEach(block => {
+      const lines = block.split("\n");
+      const label = lines[0].trim() || "unnamed";
+      const sequence = lines.slice(1).join("").trim();
+      if (sequence) entries.push({ label, sequence });
+    });
+    const results = entries.map(entry => {
+      const pred = predictFromSequence(entry.sequence);
+      if (!pred) return { label: entry.label, error: true };
+      return { label: entry.label, predicted_label: pred.label, probaText: pred.probaText, tag: pred.tag ? pred.tag.tag : "\u2013" };
+    });
+    this.setState({ batchResults: results });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const tabBase = "font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:7px;border:none;cursor:pointer;";
+    const activeStyle = tabBase + "background:oklch(46% 0.19 20);color:oklch(98% 0.01 68)";
+    const inactiveStyle = tabBase + "background:transparent;color:oklch(40% 0.02 40)";
+
+    const result = s.result ? {
+      label: s.result.label,
+      probaText: s.result.probaText,
+      drivers: s.result.drivers,
+      hasTag: s.result.hasTag,
+      tag: s.result.tag,
+    } : null;
+
+    const featureCompare = Object.entries(FEATURE_MEANS).map(([key, v]) => {
+      const maxAbs = Math.max(Math.abs(v.soluble), Math.abs(v.insoluble), 0.001);
+      return {
+        label: v.label,
+        solubleVal: v.soluble.toFixed(v.soluble > 100 ? 0 : 3),
+        insolubleVal: v.insoluble.toFixed(v.insoluble > 100 ? 0 : 3),
+        solubleWidth: ((Math.abs(v.soluble) / maxAbs) * 100).toFixed(0) + "%",
+        insolubleWidth: ((Math.abs(v.insoluble) / maxAbs) * 100).toFixed(0) + "%",
+      };
+    });
+
+    const q = s.geneQuery.trim().toLowerCase();
+    const geneResults = (q.length < 1 ? [] : GENE_SAMPLE.filter(g =>
+      g.gene_name.toLowerCase().includes(q) || g.b_number.toLowerCase().includes(q)
+    ).slice(0, 8)).map(g => ({ ...g, onSelect: () => this.selectGene(g) }));
+
+    const batchResults = s.batchResults ? s.batchResults.map(r => ({
+      ...r,
+      pillBg: r.predicted_label === "Soluble" ? "oklch(93% 0.04 148)" : "oklch(94% 0.035 20)",
+      pillColor: r.predicted_label === "Soluble" ? "oklch(46% 0.10 148)" : "oklch(46% 0.19 20)",
+    })) : null;
+
+    const delta = (s.mutationAfter !== null && s.mutationBefore !== null) ? (s.mutationAfter - s.mutationBefore) : null;
+
+    return {
+      isPredictor: s.tab === "predictor", isLookup: s.tab === "lookup",
+      isBatch: s.tab === "batch", isDataset: s.tab === "dataset",
+      setTab_predictor: () => this.setTab("predictor"),
+      setTab_lookup: () => this.setTab("lookup"),
+      setTab_batch: () => this.setTab("batch"),
+      setTab_dataset: () => this.setTab("dataset"),
+      tabStyle_predictor: s.tab === "predictor" ? activeStyle : inactiveStyle,
+      tabStyle_lookup: s.tab === "lookup" ? activeStyle : inactiveStyle,
+      tabStyle_batch: s.tab === "batch" ? activeStyle : inactiveStyle,
+      tabStyle_dataset: s.tab === "dataset" ? activeStyle : inactiveStyle,
+      sequenceInput: s.sequenceInput, exampleChoice: s.exampleChoice,
+      onExampleChange: (e) => this.onExampleChange(e), onSequenceChange: (e) => this.onSequenceChange(e),
+      onPredict: () => this.onPredict(), predictError: s.predictError,
+      hasResult: !!result, hasNoResult: !result, result,
+      verdictBg: s.result ? (s.result.label === "Soluble" ? "oklch(93% 0.04 148)" : "oklch(94% 0.035 20)") : "",
+      verdictColor: s.result ? (s.result.label === "Soluble" ? "oklch(46% 0.10 148)" : "oklch(46% 0.19 20)") : "",
+      probPct: s.result ? (s.result.probaSoluble * 100).toFixed(1) + "%" : "0%",
+      mutPosition: s.mutPosition, mutResidue: s.mutResidue,
+      mutCurrent: s.lastSequence && s.mutPosition >= 1 && s.mutPosition <= s.lastSequence.length ? s.lastSequence[s.mutPosition - 1] : "",
+      onMutPositionChange: (e) => this.onMutPositionChange(e), onMutResidueChange: (e) => this.onMutResidueChange(e),
+      onMutate: () => this.onMutate(),
+      mutationResultText: s.mutationText,
+      mutationDeltaText: delta !== null ? (delta >= 0 ? "(+" : "(") + delta.toFixed(3) + ")" : "",
+      mutationDeltaColor: delta !== null ? (delta >= 0 ? "oklch(46% 0.10 148)" : "oklch(46% 0.19 20)") : "oklch(22% 0.025 40)",
+      geneQuery: s.geneQuery, onGeneQueryChange: (e) => this.onGeneQueryChange(e), geneResults,
+      hasGeneDetail: !!s.geneDetail, geneDetail: s.geneDetail,
+      batchInput: s.batchInput, onBatchInputChange: (e) => this.onBatchInputChange(e), onBatchRun: () => this.onBatchRun(),
+      hasBatchResults: !!batchResults, batchResults,
+      featureCompare,
+    };
+  }
+}
+</script>
+</body>
+</html>

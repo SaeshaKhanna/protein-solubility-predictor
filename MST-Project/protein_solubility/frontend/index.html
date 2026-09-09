@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solubility Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="tabs">
+    <a class="tab" href="/predictor">Predictor</a>
+    <a class="tab" href="/lookup">Gene Lookup</a>
+    <a class="tab" href="/batch">Batch Predict</a>
+    <a class="tab" href="/dataset">Dataset &amp; Model</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Computational Biology &middot; ML Mini-Project</div>
+    <h1 class="hero-title">Predicting protein <em>solubility</em> before it ever reaches the bench</h1>
+    <p class="hero-lede">
+      Roughly a third of proteins expressed in <em>E. coli</em> misfold into insoluble aggregates &mdash;
+      a discovery scientists usually make only after cloning, expressing, and lysing. The
+      <strong>eSOL dataset</strong> (Niwa et al., 2009/2012) measured real solubility for the entire
+      expressible <em>E. coli</em> K-12 proteome. We trained a classifier on it, paired with SHAP
+      explanations and a fusion-tag advisor &mdash; so a prediction reads as a lab decision, not just a label.
+    </p>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="hb-num">3,133</span><span class="hb-lbl">PROTEINS MODELED</span></div>
+      <div class="hero-badge"><span class="hb-num">77.8%</span><span class="hb-lbl">MODEL ACCURACY</span></div>
+      <div class="hero-badge"><span class="hb-num">0.858</span><span class="hb-lbl">ROC&ndash;AUC</span></div>
+    </div>
+    <a class="hero-cta" href="/predictor" style="margin-top:24px">Try the predictor &rarr;</a>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 420 420" class="protein-svg">
+      <path fill="none" stroke="oklch(88% 0.02 60)" stroke-width="1" d="M210,40 C275,35 340,75 355,140 C370,205 345,270 295,310 C245,350 175,365 120,335 C65,305 35,240 45,180 C55,120 90,60 145,45 C165,40 188,42 210,40 Z"/>
+      <g stroke="oklch(70% 0.02 40)" stroke-width="1" fill="none">
+        <line x1="150" y1="120" x2="210" y2="90"/>
+        <line x1="210" y1="90" x2="270" y2="130"/>
+        <line x1="270" y1="130" x2="290" y2="200"/>
+        <line x1="290" y1="200" x2="240" y2="255"/>
+        <line x1="240" y1="255" x2="170" y2="260"/>
+        <line x1="170" y1="260" x2="120" y2="210"/>
+        <line x1="120" y1="210" x2="150" y2="120"/>
+        <line x1="210" y1="90" x2="180" y2="175"/>
+        <line x1="180" y1="175" x2="240" y2="255"/>
+        <line x1="180" y1="175" x2="120" y2="210"/>
+      </g>
+      <g>
+        <circle cx="150" cy="120" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"/>
+        <circle cx="210" cy="90" r="8" fill="oklch(46% 0.19 20)" stroke="none"/>
+        <circle cx="270" cy="130" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"/>
+        <circle cx="290" cy="200" r="7" fill="oklch(46% 0.10 148)" stroke="none"/>
+        <circle cx="240" cy="255" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"/>
+        <circle cx="170" cy="260" r="6" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"/>
+        <circle cx="120" cy="210" r="7" fill="oklch(46% 0.10 148)" stroke="none"/>
+        <circle cx="180" cy="175" r="5" fill="oklch(96% 0.014 68)" stroke="oklch(46% 0.19 20)" stroke-width="2"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<div class="tool-grid">
+  <a class="tool-card" href="/predictor">
+    <h3>Predictor</h3>
+    <p>Paste a sequence, get a Soluble/Insoluble verdict with SHAP-driven reasoning and a fusion-tag recommendation.</p>
+    <span class="arrow">Open &rarr;</span>
+  </a>
+  <a class="tool-card" href="/lookup">
+    <h3>Gene Lookup</h3>
+    <p>Search the real 3,133-protein eSOL dataset and compare the model's prediction against the measured result.</p>
+    <span class="arrow">Open &rarr;</span>
+  </a>
+  <a class="tool-card" href="/batch">
+    <h3>Batch Predict</h3>
+    <p>Paste multiple FASTA-style sequences and get a verdict, probability, and tag for every one at once.</p>
+    <span class="arrow">Open &rarr;</span>
+  </a>
+  <a class="tool-card" href="/dataset">
+    <h3>Dataset &amp; Model</h3>
+    <p>Class balance, feature separation, and a head-to-head comparison of the three trained models.</p>
+    <span class="arrow">Open &rarr;</span>
+  </a>
+</div>
+
+<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+
+</body>
+</html>

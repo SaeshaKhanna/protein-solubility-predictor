@@ -1,0 +1,41 @@
+﻿
+MST Project Statements (UCS321)
+1. Develop a machine learning-based regression model for Larsen &amp; Toubro Realty to predict house prices using features such as location, size, number of rooms, property age, and amenities. The workflow must include data pre-processing, exploratory data analysis, model building, performance evaluation, and optimization for improved accuracy. The final model should provide accurate price predictions and highlight the most influential factors affecting property value, aiding better decision-making for buyers, sellers, and investors.Â 
+2. Pearson VUE, a global leader in computer-based testing, seeks to classify students into categories such asÂ High Performer,Â Average Performer, andÂ Needs Improvement. Using a dataset containing studentsÂ Mid-Semester Test (MST) scores,Â Quiz results,Â Attendance records, andÂ Assignment performance, you are required to develop a Python-based machine learning classification model. The project should include:
+Pre-processing the dataset (handling missing values, normalization)
+Training and evaluating suitable classification algorithms 
+Model performance 
+3. Big Bazaar aims to segment its customers into distinct groups to optimize promotional strategies and improve sales. Using customer purchase history (annual income, spending score, and visit frequency etc.), develop aÂ Python-based clustering modelÂ  to identify customer segments. The project should include:Data cleaning and pre-processing, Performance parameters etc.
+4. Pfizer Inc.Â is focusing on enhancing the success rate of therapeutic protein development. One key challenge in biotechnology is predicting whether a protein will beÂ solubleÂ orÂ insolubleÂ during expression inÂ E. coli. Using a dataset containing amino acid composition, molecular weight, isoelectric point (pI), hydrophobicity index, and other physicochemical properties, develop aÂ supervised machine learning classification modelÂ to categorize proteins asÂ SolubleÂ orÂ Insoluble.5. HDFC Bank Ltd.Â aims to improve its loan processing efficiency by predicting whether a loan application should beÂ approvedÂ orÂ rejectedÂ based on applicant details. Using a dataset containing information such as applicant income, loan amount, credit history, employment status, property area, and other financial indicators, develop aÂ supervised machine learning classification modelÂ to categorize applications asÂ ApprovedÂ orÂ Rejected.
+6. General Electric (GE) Power SystemsÂ aims to improve the operational reliability of its electric motors by predicting winding temperatures under diverse working conditions. Using a dataset containing parameters such as ambient temperature, motor speed, load torque, supply voltage, and current, students will develop aÂ supervised machine learning regression modelÂ to estimate motor temperature.
+7. Siemens EnergyÂ is exploring efficient material selection for manufacturing components in turbines, engines, and heavy machinery. Given a dataset containing mechanical properties such as tensile strength, yield strength, hardness, density, thermal conductivity, and elasticity, students will applyÂ unsupervised learning techniquesÂ (e.g., K-Means clustering) to group materials with similar characteristics.The aim is to help engineers quickly identify suitable materials for specific applications based on property clusters, reducing selection time and improving performance. The project should include:
+Data cleaning and handling of missing values
+Visualizing clusters using PCA or t-SNE
+8. BASF SE, a global leader in chemical manufacturing, is seeking to enhance environmental monitoring capabilities by predicting theÂ Air Quality Index (AQI)Â in industrial and urban areas. Using historical air quality datasets containing parameters such as PM2.5, PM10, NOâ‚‚, SOâ‚‚, CO, Oâ‚ƒ, temperature, and humidity, students will develop aÂ supervised regression modelÂ to predict future AQI values.The goal is to assist environmental engineers and regulatory bodies in taking proactive measures to control emissions and safeguard public health.
+9. Customer churn is a critical challenge in the telecom industry, where customers discontinue their services and move to competitors. Reducing churn can significantly improve revenue and customer loyalty. Build aÂ classification-based machine learning modelÂ to predict whether a customer is likely to churn based on their demographic details, usage patterns, billing information, and service feedback.
+10. Analyze energy consumption data fromÂ Siemens EnergyÂ using PCA for dimensionality reduction and K-Means clustering to segment consumers into distinct usage patterns. The goal is to identify key factors affecting consumption and propose targeted optimization strategies.
+
+Instructions:
+Dataset can be self-generated or obtained from standard platforms (e.g., Kaggle, GitHub).
+Number of features can be selected as per project scope and relevance.
+Performance evaluation parameters can be chosen freely.
+Flow diagram must be given with Pre-processing and visualization steps clearly documented.
+A. Rubrics (40 marks) (Group of 4-5 students)
+
+Problem Understanding &amp; Objective ClarityÂ â€“ 5 marks
+Data Collection &amp; Pre-processingÂ â€“ 10 marks
+Model Development &amp; ImplementationÂ â€“ 12 marks
+Performance Evaluation and Interpretation of ResultsÂ â€“ 8 marks
+Innovation / Creativity in ApproachÂ â€“ 5 marks
+
+
+B. Presentation/viva (20 Marks)
+
+A+B = 60 Marks
+
+
+ 
+
+
+
+

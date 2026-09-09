@@ -1,0 +1,10 @@
+Best model: XGBoost
+
+              precision    recall  f1-score   support
+
+   Insoluble       0.79      0.82      0.80       346
+     Soluble       0.77      0.72      0.74       281
+
+    accuracy                           0.78       627
+   macro avg       0.78      0.77      0.77       627
+weighted avg       0.78      0.78      0.78       627

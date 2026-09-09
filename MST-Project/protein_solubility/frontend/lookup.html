@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gene Lookup &middot; Solubility Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="tabs">
+    <a class="tab" href="/predictor">Predictor</a>
+    <a class="tab active" href="/lookup">Gene Lookup</a>
+    <a class="tab" href="/batch">Batch Predict</a>
+    <a class="tab" href="/dataset">Dataset &amp; Model</a>
+  </nav>
+</header>
+
+<main style="padding-top:32px">
+  <div class="card">
+    <h2>Look up a real eSOL protein</h2>
+    <p class="hint">Search the 3,133-protein dataset by gene name or b-number, and compare the model's prediction against the real measured solubility.</p>
+    <input type="text" id="gene-search" placeholder="e.g. thrB, yaaX, b0003&hellip;" autocomplete="off">
+    <div id="gene-results" class="gene-results"></div>
+  </div>
+  <div class="card hidden" id="gene-detail-card" style="margin-top:16px">
+    <h2 id="gene-detail-title">&mdash;</h2>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-heading">Actual (measured)</div>
+        <div class="compare-value" id="gene-actual-label">&mdash;</div>
+        <div class="compare-sub" id="gene-actual-pct">&mdash;</div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-heading">Model prediction</div>
+        <div class="compare-value" id="gene-pred-label">&mdash;</div>
+        <div class="compare-sub" id="gene-pred-pct">&mdash;</div>
+      </div>
+    </div>
+    <div id="gene-match-banner" class="match-banner"></div>
+  </div>
+</main>
+
+<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

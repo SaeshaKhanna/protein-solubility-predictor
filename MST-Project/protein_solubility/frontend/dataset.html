@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dataset &amp; Model &middot; Solubility Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="tabs">
+    <a class="tab" href="/predictor">Predictor</a>
+    <a class="tab" href="/lookup">Gene Lookup</a>
+    <a class="tab" href="/batch">Batch Predict</a>
+    <a class="tab active" href="/dataset">Dataset &amp; Model</a>
+  </nav>
+</header>
+
+<main style="padding-top:32px">
+  <div class="grid-two">
+    <div class="card">
+      <h2>Dataset composition</h2>
+      <div id="dataset-summary" class="dataset-summary"></div>
+      <div id="class-balance-bar" class="class-balance-bar"></div>
+      <h3 class="sub-heading">Feature separation: Soluble vs Insoluble (mean values)</h3>
+      <div id="feature-compare" class="feature-compare"></div>
+    </div>
+    <div class="card">
+      <h2>Model comparison</h2>
+      <table class="model-table" id="model-table">
+        <thead><tr><th>Model</th><th>Accuracy</th><th>F1</th><th>ROC-AUC</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <h3 class="sub-heading">Confusion matrix (best model)</h3>
+      <img src="/report-image/confusion_matrix.png" alt="Confusion matrix" class="report-img">
+      <h3 class="sub-heading">SHAP global feature importance</h3>
+      <img src="/report-image/shap_summary.png" alt="SHAP summary" class="report-img">
+    </div>
+  </div>
+</main>
+
+<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
