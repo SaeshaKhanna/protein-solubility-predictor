@@ -3,34 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Batch Predict &middot; Solubility Console</title>
+<meta name="description" content="Run explainable protein solubility predictions across multiple FASTA entries.">
+<title>Batch analysis — Solubility Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
 </head>
-<body>
+<body data-page="batch">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-ambient" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Solubility Console home"><span class="brand-mark" aria-hidden="true"><svg
+            viewBox="0 0 24 24" fill="none">
+            <circle cx="6" cy="8" r="2.4" stroke="currentColor" />
+            <circle cx="17.5" cy="6" r="2" fill="currentColor" />
+            <circle cx="16" cy="17" r="2.5" stroke="currentColor" />
+            <circle cx="7" cy="17" r="1.6" fill="currentColor" />
+            <path d="M8.3 7.5 15.4 6M16.9 7.8l-1 6.7M13.7 17H8.6M7 9.8v5.4M8 9.8l6.5 5.5" stroke="currentColor"
+              stroke-linecap="round" />
+          </svg></span><span class="brand-copy"><strong>Solubility Console</strong><small>eSOL · ML
+            WORKBENCH</small></span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a class="nav-link"
+          href="/predictor"><span>01</span>Predictor</a><a class="nav-link" href="/lookup"><span>02</span>Gene
+          lookup</a><a class="nav-link" href="/batch" aria-current="page"><span>03</span>Batch</a><a class="nav-link"
+          href="/dataset"><span>04</span>Dataset</a></nav>
+      <div class="system-status"><i class="status-dot" aria-hidden="true"></i>Model online</div>
+    </div>
+  </header>
 
-<header class="topbar">
-  <nav class="tabs">
-    <a class="tab" href="/predictor">Predictor</a>
-    <a class="tab" href="/lookup">Gene Lookup</a>
-    <a class="tab active" href="/batch">Batch Predict</a>
-    <a class="tab" href="/dataset">Dataset &amp; Model</a>
-  </nav>
-</header>
+<main id="main-content" class="app-main">
+  <section class="page-intro" data-reveal>
+    <div>
+      <div class="eyebrow">03 / Multi-sequence inference</div>
+      <h1>From FASTA to <span class="serif-accent">shortlist.</span></h1>
+      <p>Screen multiple protein candidates in one run and turn a sequence set into a compact, actionable expression
+        table.</p>
+    </div>
+    <aside class="page-aside" aria-label="Batch specifications">
+      <div class="page-aside-row"><span>Format</span><strong>Multi-FASTA</strong></div>
+      <div class="page-aside-row"><span>Result</span><strong>Per entry</strong></div>
+      <div class="page-aside-row"><span>Advice</span><strong>Fusion tag</strong></div>
+    </aside>
+  </section>
 
-<main style="padding-top:32px">
-  <div class="card">
-    <h2>Batch predict</h2>
-    <p class="hint">Paste multiple sequences, FASTA-style (a &gt;header line above each sequence). Every protein gets a verdict and, if insoluble, a tag recommendation.</p>
-    <textarea id="batch-input" class="batch-textarea" placeholder="&gt;protein_1&#10;MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEA...&#10;&#10;&gt;protein_2&#10;MSKRARTQETVGPDGTQLVAVSAWLNAHRYENYHKVVNC..."></textarea>
-    <button class="btn-primary" id="batch-btn">Run batch prediction</button>
-    <div id="batch-results" class="batch-results"></div>
+  <div class="pipeline-strip" aria-label="Batch pipeline" data-reveal>
+    <div class="pipeline-item"><span>01</span>Parse FASTA</div>
+    <div class="pipeline-item"><span>02</span>Extract features</div>
+    <div class="pipeline-item"><span>03</span>Run model</div>
+    <div class="pipeline-item"><span>04</span>Rank outcomes</div>
   </div>
+  <section class="panel" data-reveal>
+    <div class="panel-inner">
+      <header class="panel-header">
+        <div>
+          <div class="panel-kicker">Input / multi-FASTA</div>
+          <h2 class="panel-title">Build the screening queue</h2>
+          <p class="panel-copy">Place a <code>&gt;header</code> before each sequence. A single bare sequence is also
+            accepted.</p>
+        </div><span class="panel-badge">SEQUENTIAL INFERENCE</span>
+      </header>
+      <div class="preset-container">
+        <div class="preset-title">
+          <svg viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1 11.5v-7l5 3.5-5 3.5z" fill="currentColor"/></svg>
+          <strong>Batch Presets · Click to Populate</strong>
+        </div>
+        <button class="preset-btn soluble" id="load-batch-demo" type="button">✨ Load 4 Test Candidates (2 Soluble + 2 Insoluble)</button>
+        <button class="preset-btn" id="load-batch-example" type="button">📄 Example Pair</button>
+        <button class="preset-btn clear-btn" id="clear-batch-btn" type="button">🧹 Clear</button>
+      </div>
+
+      <label class="field-label" for="batch-input"><span>Sequence collection</span><small>FASTA TEXT</small></label>
+      <textarea id="batch-input" class="batch-textarea" spellcheck="false" aria-describedby="batch-meta batch-message"
+        placeholder=">candidate_alpha&#10;MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEA...&#10;&#10;>candidate_beta&#10;MSKRARTQETVGPDGTQLVAVSAWLNAHRYENYHKVVNC..."></textarea>
+      <div class="input-meta" id="batch-meta">
+        <span id="batch-entry-count"><strong>0 entries detected</strong></span>
+        <span>Each sequence needs ≥ 10 valid residues</span>
+      </div>
+      <div class="form-actions">
+        <button class="btn-primary" id="batch-btn" type="button">
+          <span class="btn-label">Run batch analysis</span>
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="btn-secondary hidden" id="export-batch-csv" type="button">
+          📥 Export Results (CSV)
+        </button>
+      </div>
+      <p class="form-message" id="batch-message" role="alert" aria-live="polite"></p>
+      <div id="batch-results" class="batch-results" aria-live="polite"></div>
+    </div>
+  </section>
 </main>
-
-<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
-
-<script src="app.js"></script>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Solubility Console</div>
+      <div class="footer-copy">eSOL · Niwa et al., PNAS 2009/2012<br>Sequence screening without spreadsheet friction.
+      </div>
+    </div>
+    <div class="footer-meta"><span>Multi-FASTA</span><span>Batch inference</span><span>Tag advice</span></div>
+  </div>
+</footer>
 </body>
 </html>

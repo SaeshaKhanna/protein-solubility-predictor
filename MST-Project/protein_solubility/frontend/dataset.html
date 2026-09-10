@@ -3,47 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dataset &amp; Model &middot; Solubility Console</title>
+<meta name="description"
+  content="Explore eSOL dataset composition, model benchmarks, confusion matrix, and SHAP feature importance.">
+<title>Dataset & model — Solubility Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
 </head>
-<body>
-
-<header class="topbar">
-  <nav class="tabs">
-    <a class="tab" href="/predictor">Predictor</a>
-    <a class="tab" href="/lookup">Gene Lookup</a>
-    <a class="tab" href="/batch">Batch Predict</a>
-    <a class="tab active" href="/dataset">Dataset &amp; Model</a>
-  </nav>
-</header>
-
-<main style="padding-top:32px">
-  <div class="grid-two">
-    <div class="card">
-      <h2>Dataset composition</h2>
-      <div id="dataset-summary" class="dataset-summary"></div>
-      <div id="class-balance-bar" class="class-balance-bar"></div>
-      <h3 class="sub-heading">Feature separation: Soluble vs Insoluble (mean values)</h3>
-      <div id="feature-compare" class="feature-compare"></div>
+<body data-page="dataset">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-ambient" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Solubility Console home"><span class="brand-mark" aria-hidden="true"><svg
+            viewBox="0 0 24 24" fill="none">
+            <circle cx="6" cy="8" r="2.4" stroke="currentColor" />
+            <circle cx="17.5" cy="6" r="2" fill="currentColor" />
+            <circle cx="16" cy="17" r="2.5" stroke="currentColor" />
+            <circle cx="7" cy="17" r="1.6" fill="currentColor" />
+            <path d="M8.3 7.5 15.4 6M16.9 7.8l-1 6.7M13.7 17H8.6M7 9.8v5.4M8 9.8l6.5 5.5" stroke="currentColor"
+              stroke-linecap="round" />
+          </svg></span><span class="brand-copy"><strong>Solubility Console</strong><small>eSOL · ML
+            WORKBENCH</small></span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a class="nav-link"
+          href="/predictor"><span>01</span>Predictor</a><a class="nav-link" href="/lookup"><span>02</span>Gene
+          lookup</a><a class="nav-link" href="/batch"><span>03</span>Batch</a><a class="nav-link" href="/dataset"
+          aria-current="page"><span>04</span>Dataset</a></nav>
+      <div class="system-status"><i class="status-dot" aria-hidden="true"></i>Model online</div>
     </div>
-    <div class="card">
-      <h2>Model comparison</h2>
-      <table class="model-table" id="model-table">
-        <thead><tr><th>Model</th><th>Accuracy</th><th>F1</th><th>ROC-AUC</th></tr></thead>
-        <tbody></tbody>
-      </table>
-      <h3 class="sub-heading">Confusion matrix (best model)</h3>
-      <img src="/report-image/confusion_matrix.png" alt="Confusion matrix" class="report-img">
-      <h3 class="sub-heading">SHAP global feature importance</h3>
-      <img src="/report-image/shap_summary.png" alt="SHAP summary" class="report-img">
+  </header>
+
+<main id="main-content" class="app-main">
+  <section class="page-intro" data-reveal>
+    <div>
+      <div class="eyebrow">04 / Evidence layer</div>
+      <h1>Trust is a <span class="serif-accent">visible</span> system.</h1>
+      <p>Audit the measured class balance, biochemical separation, benchmark models, confusion matrix, and global
+        feature importance behind every prediction.</p>
     </div>
+    <aside class="page-aside" aria-label="Dataset specifications">
+      <div class="page-aside-row"><span>Dataset</span><strong>eSOL K-12</strong></div>
+      <div class="page-aside-row"><span>Split</span><strong>80 / 20</strong></div>
+      <div class="page-aside-row"><span>Explain</span><strong>SHAP</strong></div>
+    </aside>
+  </section>
+
+  <section class="data-dashboard" aria-label="Dataset and model dashboard" data-reveal>
+    <article class="panel">
+      <div class="panel-inner">
+        <header class="panel-header">
+          <div>
+            <div class="panel-kicker">Dataset / composition</div>
+            <h2 class="panel-title">Measured proteome</h2>
+            <p class="panel-copy">Label distribution and class-level mean biochemical features.</p>
+          </div><span class="panel-badge">eSOL K-12</span>
+        </header>
+        <div id="dataset-summary" class="dataset-summary">
+          <div class="dataset-stat">
+            <div class="num">—</div>
+            <div class="lbl">TOTAL PROTEINS</div>
+          </div>
+          <div class="dataset-stat">
+            <div class="num soluble">—</div>
+            <div class="lbl">SOLUBLE</div>
+          </div>
+          <div class="dataset-stat">
+            <div class="num insoluble">—</div>
+            <div class="lbl">INSOLUBLE</div>
+          </div>
+        </div>
+        <div id="class-balance-bar" class="class-balance-bar" aria-label="Loading class balance"></div>
+        <div class="balance-labels"><span>Soluble</span><span>Insoluble</span></div>
+        <h3 class="sub-heading">Class mean feature separation</h3>
+        <div class="chart-key"><span><i></i>soluble mean</span><span><i></i>insoluble mean</span></div>
+        <div id="feature-compare" class="feature-compare"><span class="loading-copy">Loading feature statistics…</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="panel">
+      <div class="panel-inner">
+        <header class="panel-header">
+          <div>
+            <div class="panel-kicker">Model / benchmark</div>
+            <h2 class="panel-title">Candidate comparison</h2>
+            <p class="panel-copy">Held-out evaluation across the trained model family.</p>
+          </div><span class="panel-badge">TEST SET</span>
+        </header>
+        <div class="model-table-wrap">
+          <table class="model-table" id="model-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>F1</th>
+                <th>ROC-AUC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="4" class="loading-copy">Loading model metrics…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </article>
+    </section>
+
+  <!-- View Mode Switcher -->
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 10px;">
+    <div class="chart-toggle-nav" role="tablist" aria-label="Chart display options">
+      <button class="chart-toggle-btn active" id="btn-show-curated" type="button" role="tab" aria-selected="true">
+        📊 Curated Interactive Suite
+      </button>
+      <button class="chart-toggle-btn" id="btn-show-research" type="button" role="tab" aria-selected="false">
+        🔬 Matplotlib Research Plots
+      </button>
+    </div>
+    <span class="panel-badge" style="background: rgba(186, 245, 90, .1); color: var(--accent);">TEST SET · N = 627 PROTEINS</span>
   </div>
-</main>
 
-<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
+  <!-- CURATED INTERACTIVE GRAPHS SUITE -->
+  <section class="curated-graphs-grid" id="curated-graphs-suite" data-reveal>
+    <!-- 1. Curated Interactive Confusion Matrix -->
+    <article class="curated-graph-panel">
+      <div class="curated-graph-header">
+        <div class="section-label">Performance / test set</div>
+        <h3 class="curated-graph-title">Curated Confusion Matrix</h3>
+        <p class="curated-graph-desc">Exact classification breakdown on 627 held-out experimental <em>E. coli</em> test proteins.</p>
+      </div>
 
-<script src="app.js"></script>
+      <div class="cm-container">
+        <div class="cm-matrix-grid">
+          <div></div>
+          <div class="cm-header-cell">PRED INSOLUBLE</div>
+          <div class="cm-header-cell">PRED SOLUBLE</div>
+
+          <div class="cm-header-cell">ACTUAL<br>INSOLUBLE</div>
+          <div class="cm-cell tn">
+            <span class="cm-cell-count">284</span>
+            <span class="cm-cell-label">True Negative</span>
+            <span class="cm-cell-pct">82.1% Recall</span>
+          </div>
+          <div class="cm-cell fp">
+            <span class="cm-cell-count">62</span>
+            <span class="cm-cell-label">False Positive</span>
+            <span class="cm-cell-pct">17.9% Error</span>
+          </div>
+
+          <div class="cm-header-cell">ACTUAL<br>SOLUBLE</div>
+          <div class="cm-cell fn">
+            <span class="cm-cell-count">78</span>
+            <span class="cm-cell-label">False Negative</span>
+            <span class="cm-cell-pct">27.8% Miss</span>
+          </div>
+          <div class="cm-cell tp">
+            <span class="cm-cell-count">203</span>
+            <span class="cm-cell-label">True Positive</span>
+            <span class="cm-cell-pct">72.2% Recall</span>
+          </div>
+        </div>
+
+        <div class="cm-metrics-bar">
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">Accuracy</span>
+            <span class="cm-metric-val" style="color: var(--accent);">77.8%</span>
+          </div>
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">ROC-AUC</span>
+            <span class="cm-metric-val" style="color: var(--cyan);">0.858</span>
+          </div>
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">Specificity</span>
+            <span class="cm-metric-val" style="color: var(--good);">82.1%</span>
+          </div>
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">Precision</span>
+            <span class="cm-metric-val" style="color: #ffffff;">76.6%</span>
+          </div>
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">Sensitivity</span>
+            <span class="cm-metric-val" style="color: var(--good);">72.2%</span>
+          </div>
+          <div class="cm-metric-pill">
+            <span class="cm-metric-name">F1 Score</span>
+            <span class="cm-metric-val" style="color: #ffffff;">0.745</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. Curated Global SHAP Feature Importance -->
+    <article class="curated-graph-panel">
+      <div class="curated-graph-header">
+        <div class="section-label">Explainability / global</div>
+        <h3 class="curated-graph-title">Curated SHAP Feature Importance</h3>
+        <p class="curated-graph-desc">Ranked impact of sequence dimensions on <em>E. coli</em> cytoplasmic solubility.</p>
+      </div>
+
+      <div class="shap-bars-list">
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>1. GRAVY (Grand Hydropathy Index)</span><span>Weight · 0.88</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 100%;"></div></div>
+          <span class="shap-bar-desc">Hydrophobic patches drive intermolecular aggregation and inclusion body formation.</span>
+        </div>
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>2. Isoelectric Point (pI)</span><span>Weight · 0.74</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 84%;"></div></div>
+          <span class="shap-bar-desc">Proteins with pI near physiological pH (7.2) lose net charge and precipitate easily.</span>
+        </div>
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>3. Molecular Weight (Da)</span><span>Weight · 0.69</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 78%;"></div></div>
+          <span class="shap-bar-desc">Larger polypeptides encounter slower folding kinetics and higher misfolding rates.</span>
+        </div>
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>4. Instability Index</span><span>Weight · 0.61</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 69%;"></div></div>
+          <span class="shap-bar-desc">In vitro thermodynamic stability correlates strongly with cellular solubility.</span>
+        </div>
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>5. Fraction Charged Residues (K, R, D, E)</span><span>Weight · 0.58</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 66%;"></div></div>
+          <span class="shap-bar-desc">Surface electrostatic charge provides repulsive forces that keep proteins dispersed.</span>
+        </div>
+        <div class="shap-bar-item">
+          <div class="shap-bar-top"><span>6. Aromaticity (Phe, Trp, Tyr)</span><span>Weight · 0.47</span></div>
+          <div class="shap-bar-track"><div class="shap-bar-fill" style="width: 53%;"></div></div>
+          <span class="shap-bar-desc">Aromatic ring stacking promotes non-specific hydrophobic core collapse.</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ORIGINAL RESEARCH MATPLOTLIB PLOTS (Accessible via toggle) -->
+  <section class="report-section hidden" id="research-graphs-suite" aria-label="Model report figures">
+    <figure class="report-card">
+      <figcaption class="report-head">
+        <div class="section-label">Raw Research Figure</div>
+        <h3>Confusion matrix · Matplotlib Output</h3>
+      </figcaption>
+      <div class="report-img-wrap"><img src="/report-image/confusion_matrix.png"
+          alt="Confusion matrix for the selected protein solubility model" class="report-img" loading="lazy"></div>
+    </figure>
+    <figure class="report-card">
+      <figcaption class="report-head">
+        <div class="section-label">Raw Research Figure</div>
+        <h3>SHAP summary plot · Matplotlib Output</h3>
+      </figcaption>
+      <div class="report-img-wrap"><img src="/report-image/shap_summary.png"
+          alt="SHAP summary of global feature importance" class="report-img" loading="lazy"></div>
+    </figure>
+  </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Solubility Console</div>
+        <div class="footer-copy">eSOL · Niwa et al., PNAS 2009/2012<br>Performance evidence exposed, not hidden.</div>
+      </div>
+      <div class="footer-meta"><span>Measured data</span><span>Held-out test</span><span>Global SHAP</span></div>
+    </div>
+  </footer>
 </body>
 </html>

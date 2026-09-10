@@ -208,5 +208,17 @@ def api_model_stats():
     })
 
 
+@app.route("/favicon.ico")
+def favicon():
+    return "", 204
+
+
+@app.after_request
+def add_header(response):
+    if response.content_type and "text/html" in response.content_type:
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    return response
+
+
 if __name__ == "__main__":
-    app.run(port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False, threaded=True)

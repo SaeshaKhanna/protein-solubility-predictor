@@ -3,77 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Predictor &middot; Solubility Console</title>
+<meta name="description"
+  content="Predict protein solubility with SHAP explanations, fusion-tag guidance, and mutation simulation.">
+<title>Predictor — Solubility Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
 </head>
-<body>
-
-<header class="topbar">
-  <nav class="tabs">
-    <a class="tab active" href="/predictor">Predictor</a>
-    <a class="tab" href="/lookup">Gene Lookup</a>
-    <a class="tab" href="/batch">Batch Predict</a>
-    <a class="tab" href="/dataset">Dataset &amp; Model</a>
-  </nav>
-</header>
-
-<main style="padding-top:32px">
-  <div class="grid-two">
-    <div class="card">
-      <h2>Sequence input</h2>
-      <label class="field-label" for="example-select">Load an example</label>
-      <select id="example-select">
-        <option value="">(paste your own)</option>
-        <option value="thrB">thrB (b0003) &mdash; measured Insoluble, 32%</option>
-        <option value="yaaX">yaaX (b0005) &mdash; measured Soluble, 78%</option>
-      </select>
-      <label class="field-label" for="sequence-input">Amino acid sequence</label>
-      <textarea id="sequence-input" placeholder="Paste a raw amino-acid sequence (no FASTA header needed)&hellip;"></textarea>
-      <button class="btn-primary" id="predict-btn">Predict solubility</button>
-      <p class="hint" id="predict-error" style="min-height:16px;margin-top:10px"></p>
+<body data-page="predictor">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="page-ambient" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Solubility Console home"><span class="brand-mark" aria-hidden="true"><svg
+            viewBox="0 0 24 24" fill="none">
+            <circle cx="6" cy="8" r="2.4" stroke="currentColor" />
+            <circle cx="17.5" cy="6" r="2" fill="currentColor" />
+            <circle cx="16" cy="17" r="2.5" stroke="currentColor" />
+            <circle cx="7" cy="17" r="1.6" fill="currentColor" />
+            <path d="M8.3 7.5 15.4 6M16.9 7.8l-1 6.7M13.7 17H8.6M7 9.8v5.4M8 9.8l6.5 5.5" stroke="currentColor"
+              stroke-linecap="round" />
+          </svg></span><span class="brand-copy"><strong>Solubility Console</strong><small>eSOL · ML
+            WORKBENCH</small></span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a class="nav-link" href="/predictor"
+          aria-current="page"><span>01</span>Predictor</a><a class="nav-link" href="/lookup"><span>02</span>Gene
+          lookup</a><a class="nav-link" href="/batch"><span>03</span>Batch</a><a class="nav-link"
+          href="/dataset"><span>04</span>Dataset</a></nav>
+      <div class="system-status"><i class="status-dot" aria-hidden="true"></i>Model online</div>
     </div>
+  </header>
 
-    <div class="card" id="result-card">
-      <h2>Result</h2>
-      <div id="result-empty" class="empty-state">Run a prediction to see results here.</div>
-      <div id="result-body" class="hidden">
-        <div class="verdict" id="verdict-box">
-          <div class="verdict-label" id="verdict-label">&mdash;</div>
-          <div class="prob-track"><div class="prob-fill" id="prob-fill"></div></div>
-          <div class="prob-caption" id="prob-caption">P(soluble) = &mdash;</div>
+<main id="main-content" class="app-main">
+  <section class="page-intro" data-reveal>
+    <div>
+      <div class="eyebrow">01 / Explainable inference</div>
+      <h1>Read the signal <span class="serif-accent">inside</span> the sequence.</h1>
+      <p>Transform a raw amino-acid sequence into a calibrated solubility verdict, then inspect exactly which
+        biochemical features moved the model.</p>
+    </div>
+    <aside class="page-aside" aria-label="Predictor specifications">
+      <div class="page-aside-row"><span>Input</span><strong>Amino acids</strong></div>
+      <div class="page-aside-row"><span>Engine</span><strong>XGBoost</strong></div>
+      <div class="page-aside-row"><span>Output</span><strong>P(soluble)</strong></div>
+    </aside>
+  </section>
+
+  <section class="predictor-workspace" aria-label="Solubility predictor" data-reveal>
+    <article class="panel input-panel">
+      <div class="panel-inner">
+        <header class="panel-header">
+          <div>
+            <div class="panel-kicker">Input / sequence</div>
+            <h2 class="panel-title">Define your target</h2>
+            <p class="panel-copy">Use a clean one-letter sequence. Whitespace and FASTA headers are ignored by the model.
+            </p>
+          </div><span class="panel-badge">MIN · 10 AA</span>
+        </header>
+        <div class="preset-container">
+          <div class="preset-title">
+            <svg viewBox="0 0 20 20" width="14" height="14" fill="none"><path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1 11.5v-7l5 3.5-5 3.5z" fill="currentColor"/></svg>
+            <strong>Quick Presets · Click to Test</strong>
+          </div>
+          <button class="preset-btn soluble" type="button" data-preset="yaax">✨ yaaX (Soluble · 78%)</button>
+          <button class="preset-btn soluble" type="button" data-preset="gfp">🟢 GFP (Soluble)</button>
+          <button class="preset-btn soluble" type="button" data-preset="lysozyme">🔬 Lysozyme (Soluble)</button>
+          <button class="preset-btn insoluble" type="button" data-preset="thrb">⚠️ thrB (Insoluble · 32%)</button>
+          <button class="preset-btn insoluble" type="button" data-preset="insulin">🔴 Human Insulin (Insoluble)</button>
+          <button class="preset-btn clear-btn" type="button" id="clear-seq-btn">🧹 Clear</button>
         </div>
 
-        <h3 class="sub-heading">Top features driving this prediction</h3>
-        <div id="driver-bars" class="driver-bars"></div>
+        <div class="field-group">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label class="field-label" for="sequence-input">
+              <strong>Amino-acid sequence</strong>
+              <small>ONE-LETTER CODE (FASTA headers auto-stripped)</small>
+            </label>
+            <button class="btn-chip" type="button" id="copy-seq-btn" title="Copy current sequence">
+              <svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="5" y="5" width="8" height="8" rx="1.5" stroke="currentColor"/><path d="M3 11V3h8" stroke="currentColor" stroke-linecap="round"/></svg>
+              Copy
+            </button>
+          </div>
+          <textarea id="sequence-input" spellcheck="false"
+            aria-describedby="sequence-meta predict-error"
+            placeholder="MVKVYAPASSANMSVGFDVLGAAVTPVDGALLGDVVTVEAAE…"></textarea>
+          <div class="sequence-meta" id="sequence-meta">
+            <span id="residue-count"><strong>0 residues</strong></span>
+            <span id="sequence-status">Waiting for input</span>
+          </div>
+        </div>
 
-        <div id="tag-card" class="tag-card hidden">
-          <div class="tag-title">Suggested fusion tag: <span id="tag-name"></span></div>
-          <div class="tag-driver" id="tag-driver"></div>
-          <div class="tag-reason" id="tag-reason"></div>
+        <div class="form-actions">
+          <button class="btn-primary" id="predict-btn" type="button">
+            <span class="btn-label">Run solubility analysis</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <p class="form-message" id="predict-error" role="alert" aria-live="polite"></p>
+      </div>
+    </article>
+
+    <article class="panel output-panel" id="result-card">
+      <div class="panel-inner">
+        <header class="panel-header">
+          <div>
+            <div class="panel-kicker">Output / inference</div>
+            <h2 class="panel-title">Decision surface</h2>
+          </div>
+          <span class="panel-badge">SHAP · LOCAL DRIVERS</span>
+        </header>
+        <div id="result-empty" class="empty-state">
+          <div>
+            <div class="empty-orb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 16c3-1 3-7 6-8s3 5 6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                <circle cx="6" cy="16" r="2.5" fill="currentColor" />
+                <circle cx="12" cy="8" r="2.5" stroke="currentColor" />
+                <circle cx="18" cy="12" r="2.5" fill="currentColor" />
+              </svg></div>
+            <strong>Your inference will resolve here</strong>
+            <span>Click any preset above or paste your target sequence to generate probability, SHAP drivers, and fusion-tag advice.</span>
+          </div>
+        </div>
+
+        <div id="result-body" class="hidden" aria-live="polite">
+          <div class="verdict" id="verdict-box">
+            <div class="verdict-top">
+              <div>
+                <div class="verdict-kicker">Model verdict</div>
+                <div class="verdict-label" id="verdict-label">—</div>
+              </div>
+              <div class="prob-percent" id="prob-percent">—</div>
+            </div>
+            <div class="prob-track" aria-hidden="true">
+              <div class="prob-fill" id="prob-fill"></div>
+            </div>
+            <div class="prob-caption" id="prob-caption">
+              <span><strong>0% (Insoluble)</strong></span>
+              <span><strong>50% (Threshold)</strong></span>
+              <span><strong>100% (Soluble)</strong></span>
+            </div>
+          </div>
+
+          <!-- Curated Biochemical Profile Dashboard -->
+          <div class="bio-profile-section" id="bio-profile-section">
+            <div class="bio-profile-head">
+              <h4>Biochemical Profile Summary</h4>
+              <span class="panel-badge">PHYSICOCHEMICAL</span>
+            </div>
+            <div class="bio-profile-grid" id="bio-profile-grid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <h3 class="sub-heading" style="margin-top: 24px;">Curated SHAP Feature Drivers</h3>
+          <p class="panel-copy" style="margin-bottom: 12px; font-size: 12px;">
+            Features pushing the model toward soluble (green) or toward insoluble aggregation (red).
+          </p>
+          <div class="driver-legend">
+            <span><i></i><strong>toward soluble (+)</strong></span>
+            <span><i></i><strong>toward insoluble (-)</strong></span>
+          </div>
+          <div id="driver-bars" class="driver-bars"></div>
+
+          <div id="tag-card" class="tag-card hidden">
+            <div class="tag-eyebrow">Recommended rescue intervention</div>
+            <div class="tag-title">Fusion tag · <strong id="tag-name"></strong></div>
+            <div class="tag-driver" id="tag-driver"></div>
+            <div class="tag-reason" id="tag-reason"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </article>
+    </section>
 
-  <div class="card" id="mutation-card" style="margin-top:16px">
-    <h2>Mutation simulator</h2>
-    <p class="hint">Swap one residue in the last-predicted sequence and see how the probability shifts.</p>
-    <div class="mutation-row">
-      <label>Position <input type="number" id="mut-position" min="1" value="1"></label>
-      <label>Current <input type="text" id="mut-current" disabled></label>
-      <label>Mutate to
-        <select id="mut-residue"></select>
-      </label>
-      <button class="btn-secondary" id="mutate-btn">Simulate</button>
+  <section class="panel mutation-panel" id="mutation-card" data-reveal>
+    <div class="panel-inner mutation-layout">
+      <header class="panel-header">
+        <div>
+          <div class="panel-kicker">What-if / mutation</div>
+          <h2 class="panel-title">Shift one residue. Watch the model move.</h2>
+          <p class="panel-copy">Test a single substitution against the last sequence without changing your primary result.
+          </p>
+        </div>
+      </header>
+      <div class="mutation-controls"><label for="mut-position">Position<input type="number" id="mut-position" min="1"
+            value="1"></label><label for="mut-current">Current<input type="text" id="mut-current" disabled></label><label
+          for="mut-residue">Mutate to<select id="mut-residue"></select></label><button class="btn-secondary"
+          id="mutate-btn" type="button"><span class="btn-label">Simulate shift</span><svg class="btn-icon"
+            viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+          </svg></button>
+        <div id="mutation-result" class="mutation-result" role="status" aria-live="polite"></div>
+      </div>
     </div>
-    <div id="mutation-result" class="mutation-result"></div>
-  </div>
+  </section>
 </main>
 
-<footer>Solubility Console &middot; eSOL (Niwa et al., PNAS 2009/2012) &middot; XGBoost, 33 engineered features, SHAP explainability</footer>
-
-<script src="app.js"></script>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Solubility Console</div>
+      <div class="footer-copy">eSOL · Niwa et al., PNAS 2009/2012<br>Explainable machine learning for E. coli expression
+        planning.</div>
+    </div>
+    <div class="footer-meta"><span>XGBoost</span><span>33 features</span><span>SHAP</span></div>
+  </div>
+</footer>
 </body>
 </html>
