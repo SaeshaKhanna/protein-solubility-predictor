@@ -26,7 +26,6 @@ const EXAMPLES = {
     + "LQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQLENYCN",
 };
 
-// Aliases for uppercase
 EXAMPLES.thrB = EXAMPLES.thrb;
 EXAMPLES.yaaX = EXAMPLES.yaax;
 
@@ -346,7 +345,6 @@ function renderPrediction(result) {
     animateWidth(probabilityFill, `${(solubleProbability * 100).toFixed(1)}%`);
   }
 
-  // Render Curated Biochemical Profile Dashboard
   if (result.features) {
     renderBiochemicalProfile(result.features);
   }
@@ -412,7 +410,6 @@ function initPredictor() {
 
   sequenceInput.addEventListener("input", updateSequenceMeta);
 
-  // One-click preset chip listeners
   document.querySelectorAll("[data-preset]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const key = btn.getAttribute("data-preset");
@@ -423,7 +420,6 @@ function initPredictor() {
     });
   });
 
-  // Clear button
   byId("clear-seq-btn")?.addEventListener("click", () => {
     sequenceInput.value = "";
     updateSequenceMeta();
@@ -433,7 +429,6 @@ function initPredictor() {
     sequenceInput.focus();
   });
 
-  // Copy button
   byId("copy-seq-btn")?.addEventListener("click", async () => {
     if (!sequenceInput.value) return;
     try {
@@ -619,7 +614,6 @@ function initGeneLookup() {
     }, 240);
   });
 
-  // Gene preset buttons
   document.querySelectorAll("[data-gene]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const geneName = btn.getAttribute("data-gene");
@@ -697,7 +691,6 @@ function renderBatchResults(batchResults, container) {
   table.append(head, body);
   container.append(summary, table);
 
-  // Setup CSV export
   const exportBtn = byId("export-batch-csv");
   if (exportBtn) {
     exportBtn.classList.remove("hidden");
@@ -737,7 +730,6 @@ function initBatch() {
 
   input.addEventListener("input", updateCount);
 
-  // Demo 4 proteins
   demoButton?.addEventListener("click", () => {
     input.value = `>yaaX_b0005 [Soluble · eSOL 78%]\n${EXAMPLES.yaax}\n\n>GFP_GreenFluorescent [Soluble]\n${EXAMPLES.gfp}\n\n>thrB_b0003 [Insoluble · eSOL 32%]\n${EXAMPLES.thrb}\n\n>Human_Insulin [Insoluble cytoplasm]\n${EXAMPLES.insulin}`;
     updateCount();
@@ -866,7 +858,6 @@ function renderModelStats(data) {
 async function initDataset() {
   if (!byId("dataset-summary")) return;
 
-  // Chart toggle switcher
   const btnCurated = byId("btn-show-curated");
   const btnResearch = byId("btn-show-research");
   const curatedSuite = byId("curated-graphs-suite");

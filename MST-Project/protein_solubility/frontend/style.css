@@ -2615,11 +2615,7 @@ textarea:focus {
   }
 }
 
-/* ==========================================================================
-   USER-FRIENDLY & BOLD TYPOGRAPHY UPGRADES
-   ========================================================================== */
-
-/* Enhanced bold weights across the app */
+/* Typography & contrast */
 body {
   font-weight: 600;
   color: var(--ink);
@@ -2713,9 +2709,7 @@ h1, h2, h3, h4, .brand strong, .panel-title, .section-title {
   color: #ffffff;
 }
 
-/* ==========================================================================
-   ONE-CLICK PRESET BUTTONS (USER FRIENDLY)
-   ========================================================================== */
+/* Presets */
 .preset-container {
   display: flex;
   flex-wrap: wrap;
@@ -2793,9 +2787,7 @@ h1, h2, h3, h4, .brand strong, .panel-title, .section-title {
   color: #ffffff;
 }
 
-/* ==========================================================================
-   BIOCHEMICAL PROPERTY PROFILE (CURATED METRICS)
-   ========================================================================== */
+/* Biochemical profile */
 .bio-profile-section {
   margin-top: 24px;
   padding-top: 20px;
@@ -2880,9 +2872,7 @@ h1, h2, h3, h4, .brand strong, .panel-title, .section-title {
   border: 1px solid rgba(255, 101, 80, .3);
 }
 
-/* ==========================================================================
-   CURATED SHAP DRIVERS & WATERFALL
-   ========================================================================== */
+/* SHAP driver cards */
 .curated-driver-card {
   display: flex;
   flex-direction: column;
@@ -2943,9 +2933,7 @@ h1, h2, h3, h4, .brand strong, .panel-title, .section-title {
   line-height: 1.4;
 }
 
-/* ==========================================================================
-   CURATED DATASET GRAPHS SUITE
-   ========================================================================== */
+/* Curated dataset charts */
 .chart-toggle-nav {
   display: flex;
   align-items: center;
